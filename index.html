@@ -1,152 +1,462 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Sven Adrian | Videography & Storytelling</title>
-	<meta name="description"
-		content="Passionate videographer and storyteller from Zurich. Capturing authentic moments in weddings, events, real estate, and more.">
+	<title>Sven Adrian | Visual Storyteller</title>
 
-	<!-- Design System Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<!-- Fonts -->
 	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@300;600;800&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;500;800&display=swap"
 		rel="stylesheet">
 
-	<!-- CSS -->
-	<link rel="stylesheet" href="assets/css/main.css">
-
-	<!-- FontAwesome -->
-	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+	<!-- Icons -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+	<!-- Tailwind CSS v3.4 -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						background: '#111827', // Luxury Black/Grey
+						surface: '#1F2937',
+						accent: '#fbbf24', // Amber/Gold
+					},
+					fontFamily: {
+						sans: ['Inter', 'sans-serif'],
+						heading: ['Outfit', 'sans-serif'],
+					},
+					animation: {
+						'fade-in': 'fadeIn 1s ease-out',
+						'slide-up': 'slideUp 0.8s ease-out forwards',
+					},
+					keyframes: {
+						fadeIn: {
+							'0%': { opacity: '0' },
+							'100%': { opacity: '1' },
+						},
+						slideUp: {
+							'0%': { transform: 'translateY(20px)', opacity: '0' },
+							'100%': { transform: 'translateY(0)', opacity: '1' },
+						}
+					}
+				}
+			}
+		}
+	</script>
+	<style>
+		/* Custom Utilities */
+		.no-scrollbar::-webkit-scrollbar {
+			display: none;
+		}
+
+		.no-scrollbar {
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+		}
+
+		.hero-video {
+			object-fit: cover;
+			width: 100vw;
+			height: 100vh;
+			filter: brightness(0.6);
+		}
+
+		.bento-item {
+			transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+		}
+
+		.bento-item:hover {
+			transform: scale(1.02);
+			z-index: 10;
+		}
+
+		.filter-btn.active {
+			background-color: white;
+			color: black;
+		}
+	</style>
 </head>
 
-<body>
+<body class="bg-background text-white antialiased selection:bg-accent selection:text-black">
 
-	<!-- Navigation -->
-	<header class="site-header">
-		<div class="container nav-container">
-			<a href="index.html" class="logo"><img src="assets/images/logo-wide.png" alt="Sven Adrian"></a>
-			<nav>
-				<ul class="nav-links">
-					<li><a href="#portfolio" class="active">Work</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="blog/index.html">Zurich Guide</a></li>
-					<li><button id="theme-toggle" class="btn" style="padding: 0.5rem; border: none;"><i
-								class="fas fa-sun"></i></button></li>
-				</ul>
-			</nav>
+	<!-- Navigation (Floating) -->
+	<nav class="fixed top-0 left-0 w-full z-50 p-6 bg-gradient-to-b from-black/90 to-transparent text-white">
+		<div class="container mx-auto flex justify-between items-center">
+			<a href="#" class="font-heading font-bold text-2xl tracking-tighter uppercase">Sven Adrian<span
+					class="text-accent">.</span></a>
+			<div class="hidden md:flex gap-8 font-medium text-sm tracking-widest uppercase">
+				<a href="#work" class="hover:text-accent transition-colors">Work</a>
+				<a href="#about" class="hover:text-accent transition-colors">About</a>
+				<a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+			</div>
+			<!-- Mobile Menu Toggle -->
+			<button id="mobile-menu-btn" class="md:hidden text-2xl z-50 relative"><i class="fas fa-bars"></i></button>
+
+			<!-- Mobile Menu Overlay -->
+			<div id="mobile-menu"
+				class="hidden fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center gap-8 text-2xl font-heading font-bold uppercase tracking-widest">
+				<a href="#work" class="hover:text-accent">Work</a>
+				<a href="#about" class="hover:text-accent">About</a>
+				<a href="#contact" class="hover:text-accent">Contact</a>
+			</div>
+		</div>
+	</nav>
+
+	<!-- 1. Hero Section (Motion-First) -->
+	<header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+		<!-- Stock Video Background -->
+		<video class="hero-video absolute top-0 left-0 shadow-2xl" autoplay loop muted playsinline
+			poster="assets/images/hero-cover-hq.jpg">
+			<source
+				src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-travel-26639-large.mp4"
+				type="video/mp4">
+		</video>
+
+		<!-- Overlay Content -->
+		<div class="relative z-10 text-center px-4 animate-slide-up">
+			<h2 class="text-accent font-medium tracking-[0.3em] text-sm md:text-base mb-4 uppercase">Cinematography &
+				Direction</h2>
+			<h1 class="font-heading text-5xl md:text-8xl font-bold leading-tight mb-8">
+				VISUAL<br><span
+					class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">STORYTELLER</span>
+			</h1>
+			<a href="#work"
+				class="inline-block border border-white/30 hover:border-white hover:bg-white hover:text-black px-8 py-3 rounded-full transition-all duration-300 font-medium tracking-wide uppercase text-sm backdrop-blur-sm">
+				View Showreel
+			</a>
+		</div>
+
+		<!-- Scroll Indicator -->
+		<div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
+			<i class="fas fa-chevron-down text-xl"></i>
 		</div>
 	</header>
 
-	<!-- Hero -->
-	<section class="hero" style="height: 90vh;">
-		<div class="container">
-			<h1>Visual Stories<br>From Zurich</h1>
-			<p>Capturing life's authentic moments through a cinematic lens.</p>
-			<div class="hero-socials">
-				<a href="https://www.youtube.com/@svenadrian" target="_blank"><i class="fab fa-youtube"></i></a>
-				<a href="https://instagram.com/svesh" target="_blank"><i class="fab fa-instagram"></i></a>
-				<a href="https://tiktok.com/@svesher" target="_blank"><i class="fab fa-tiktok"></i></a>
-				<a href="https://www.linkedin.com/in/sven-schuepbach" target="_blank"><i
-						class="fab fa-linkedin"></i></a>
+	<!-- 2. Portfolio Section (Bento Grid) -->
+	<section id="work" class="py-24 px-4 md:px-8">
+		<div class="container mx-auto">
+
+			<!-- Filters -->
+			<div class="flex flex-wrap justify-center gap-4 mb-16">
+				<button onclick="filterWork('all')"
+					class="filter-btn active border border-white/20 px-6 py-2 rounded-full text-sm uppercase tracking-wide transition-all hover:border-white">
+					All Work
+				</button>
+				<button onclick="filterWork('narrative')"
+					class="filter-btn border border-white/20 px-6 py-2 rounded-full text-sm uppercase tracking-wide transition-all hover:border-white">
+					Narrative & Life
+				</button>
+				<button onclick="filterWork('commercial')"
+					class="filter-btn border border-white/20 px-6 py-2 rounded-full text-sm uppercase tracking-wide transition-all hover:border-white">
+					Commercial & Corporate
+				</button>
 			</div>
 
-			<a href="#portfolio" class="scroll-indicator">
-				Explore Work
-				<i class="fas fa-chevron-down"></i>
-			</a>
-		</div>
-	</section>
+			<!-- Grid -->
+			<div id="grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
 
-	<!-- Main Portfolio -->
-	<section id="portfolio" class="section">
-		<div class="container">
-			<div class="grid video-grid">
-
-				<!-- Item 1: Weddings -->
-				<article class="work-item">
-					<div class="aspect-video">
-						<iframe src="https://www.youtube.com/embed/mMNk85gECJE?si=dgoreB8K0l-meuOw"
-							title="Wedding Video" allowfullscreen></iframe>
-					</div>
-					<div class="work-info">
-						<h3>Weddings</h3>
-						<p>Raw emotions, tender moments, and joyful celebrations.</p>
-					</div>
-				</article>
-
-				<!-- Item 2: Events -->
-				<article class="work-item">
-					<div class="aspect-video">
-						<iframe src="https://www.youtube.com/embed/Q_ux_h8rIIs?si=JW5YV6ZlEYGNymvY" title="Event Video"
-							allowfullscreen></iframe>
-					</div>
-					<div class="work-info">
-						<h3>Events</h3>
-						<p>Dynamic, engaging videos reflecting the atmosphere of your event.</p>
-					</div>
-				</article>
-
-				<!-- Item 3: Real Estate -->
-				<article class="work-item">
-					<div class="aspect-video">
-						<iframe src="https://www.youtube.com/embed/BFGloS5affI?si=LwyaYZfvQlhz5sPQ"
-							title="Real Estate Video" allowfullscreen></iframe>
-					</div>
-					<div class="work-info">
-						<h3>Real Estate</h3>
-						<p>Premium property showcases that engage potential buyers.</p>
-					</div>
-				</article>
-
-				<!-- Item 4: Product/Commercial -->
-				<article class="work-item">
-					<div class="aspect-video">
-						<iframe src="https://www.youtube.com/embed/UjpM2dd1Ciw?si=_1aDXGzEW2jVn_p_"
-							title="Product Video" allowfullscreen></iframe>
-					</div>
-					<div class="work-info">
-						<h3>Commercial</h3>
-						<p>Creative storytelling to boost brand visibility.</p>
-					</div>
-				</article>
-
-				<!-- Item 5: Travel -->
-				<article class="work-item">
-					<div class="aspect-video">
-						<iframe src="https://www.youtube.com/embed/dm6GJxE27hQ?si=Tqxll4kIru-KO76w" title="Travel Video"
-							allowfullscreen></iframe>
-					</div>
-					<div class="work-info">
-						<h3>Travel</h3>
-						<p>Breathtaking beauty and unique experiences from around the globe.</p>
-					</div>
-				</article>
+				<!-- JS will populate this -->
 
 			</div>
 		</div>
 	</section>
 
-	<!-- Footer -->
-	<footer class="site-footer">
-		<div class="container">
-			<div class="social-links"
-				style="margin-bottom: 2rem; font-size: 1.5rem; display: flex; gap: 1.5rem; justify-content: center;">
-				<a href="https://www.youtube.com/@svenadrian" target="_blank"><i class="fab fa-youtube"></i></a>
-				<a href="https://instagram.com/svesh" target="_blank"><i class="fab fa-instagram"></i></a>
-				<a href="https://tiktok.com/@svesher" target="_blank"><i class="fab fa-tiktok"></i></a>
-				<a href="https://www.linkedin.com/in/sven-schuepbach" target="_blank"><i
-						class="fab fa-linkedin"></i></a>
+	<!-- 3. About Section -->
+	<section id="about" class="py-24 bg-surface text-white">
+		<div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-16">
+			<div class="md:w-1/2">
+				<img src="assets/images/about/profile-cinematic.jpg" alt="Sven Adrian"
+					class="rounded-xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover h-[600px]">
 			</div>
-			<p>&copy; 2024 Sven Adrian. All rights reserved.</p>
-		</div>
-	</footer>
+			<div class="md:w-1/2">
+				<span class="text-accent text-sm font-bold tracking-widest uppercase mb-4 block">The Filmmaker</span>
+				<h2 class="font-heading text-4xl md:text-5xl font-bold mb-8 leading-tight">Capturing Life's
+					<br>Unscripted Moments
+				</h2>
+				<p class="text-gray-400 text-lg leading-relaxed mb-6">
+					I believe that the most powerful stories are the ones that happen naturally. My approach to
+					filmmaking blends the raw authenticity of documentary work with the polished aesthetic of cinema.
+				</p>
+				<p class="text-gray-400 text-lg leading-relaxed mb-8">
+					Whether it's the emotional high of a wedding day or the sleek lines of modern architecture, I focus
+					on light, composition, and emotion to create visuals that resonate.
+				</p>
 
-	<script src="assets/js/main.js"></script>
+				<!-- Socials -->
+				<div class="flex gap-6 text-2xl">
+					<a href="https://instagram.com/svesh" target="_blank" class="hover:text-accent transition-colors"><i
+							class="fab fa-instagram"></i></a>
+					<a href="https://www.youtube.com/@svenadrian" target="_blank"
+						class="hover:text-accent transition-colors"><i class="fab fa-youtube"></i></a>
+					<a href="https://tiktok.com/@svesher" target="_blank" class="hover:text-accent transition-colors"><i
+							class="fab fa-tiktok"></i></a>
+					<a href="https://www.linkedin.com/in/sven-schuepbach" target="_blank"
+						class="hover:text-accent transition-colors"><i class="fab fa-linkedin"></i></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 4. Contact Section -->
+	<section id="contact" class="py-24 px-4 md:px-8">
+		<div class="container mx-auto max-w-4xl text-center">
+			<span class="text-accent text-sm font-bold tracking-widest uppercase mb-4 block">Get In Touch</span>
+			<h2 class="font-heading text-4xl md:text-6xl font-bold mb-12">Let's Create Together</h2>
+
+			<form action="https://formspree.io/f/mlgryryb" method="POST" class="text-left space-y-6">
+				<div class="grid md:grid-cols-2 gap-6">
+					<div>
+						<label class="block text-sm uppercase tracking-wider text-gray-500 mb-2">Name</label>
+						<input type="text" name="name" required
+							class="w-full bg-surface border border-gray-700 p-4 text-white focus:border-accent focus:outline-none transition-colors">
+					</div>
+					<div>
+						<label class="block text-sm uppercase tracking-wider text-gray-500 mb-2">Email</label>
+						<input type="email" name="email" required
+							class="w-full bg-surface border border-gray-700 p-4 text-white focus:border-accent focus:outline-none transition-colors">
+					</div>
+				</div>
+				<div>
+					<label class="block text-sm uppercase tracking-wider text-gray-500 mb-2">Project Type</label>
+					<select name="type"
+						class="w-full bg-surface border border-gray-700 p-4 text-white focus:border-accent focus:outline-none transition-colors appearance-none">
+						<option>Wedding / Event</option>
+						<option>Commercial / Corporate</option>
+						<option>Real Estate</option>
+						<option>Other</option>
+					</select>
+				</div>
+				<div>
+					<label class="block text-sm uppercase tracking-wider text-gray-500 mb-2">Message</label>
+					<textarea name="message" rows="6" required
+						class="w-full bg-surface border border-gray-700 p-4 text-white focus:border-accent focus:outline-none transition-colors"></textarea>
+				</div>
+				<div class="text-center mt-8">
+					<button type="submit"
+						class="bg-white text-black px-12 py-4 font-bold uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300">
+						Send Message
+					</button>
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<!-- Video Modal -->
+	<div id="video-modal" class="fixed inset-0 z-[100] hidden bg-black/95 items-center justify-center p-4">
+		<button onclick="closeModal()"
+			class="absolute top-6 right-6 text-white text-4xl hover:text-accent transition-colors z-[110]">
+			<i class="fas fa-times"></i>
+		</button>
+		<div class="w-full max-w-6xl aspect-video relative bg-black">
+			<iframe id="modal-iframe" src="" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen"
+				allowfullscreen></iframe>
+		</div>
+	</div>
+
+	<!-- Data & Scripts -->
+	<script>
+		// VIDEO DATA
+		const projects = [
+			{
+				id: 'wedding',
+				title: "Janine and Marcel",
+				category: "narrative",
+				type: "Weddings",
+				videoUrl: "https://www.youtube.com/embed/mMNk85gECJE",
+				customThumb: 'assets/images/thumbnails/thumb-wedding.jpg',
+				class: "md:col-span-2 md:row-span-2" // Featured Item
+			},
+			{
+				id: 'realestate',
+				title: "Villa Salamina",
+				category: "commercial",
+				type: "Real Estate",
+				videoUrl: "https://www.youtube.com/embed/BFGloS5affI",
+				customThumb: 'assets/images/thumbnails/thumb-realestate.png',
+				class: "md:col-span-1 md:row-span-1"
+			},
+			{
+				id: 'short1',
+				title: "Nivea Men",
+				category: "commercial",
+				type: "Social Campaign",
+				videoUrl: "https://www.youtube.com/embed/doEkFiz6RC0",
+				customThumb: 'assets/images/thumbnails/thumb-commercial.jpg',
+				class: "md:col-span-1 md:row-span-2"
+			},
+			{
+				id: 'events',
+				title: "Inspiration Days",
+				category: "commercial",
+				type: "Event",
+				videoUrl: "https://www.youtube.com/embed/Q_ux_h8rIIs",
+				customThumb: 'assets/images/thumbnails/thumb-events.png',
+				class: "md:col-span-1 md:row-span-1"
+			},
+			{
+				id: 'commercial',
+				title: "Rolex GMT Master II",
+				category: "commercial",
+				type: "Commercial Spec",
+				videoUrl: "https://www.youtube.com/embed/UjpM2dd1Ciw",
+				customThumb: 'assets/images/thumbnails/thumb-rolex.png',
+				class: "md:col-span-1 md:row-span-1"
+			},
+			{
+				id: 'travel',
+				title: "Colombia",
+				category: "narrative",
+				type: "Travel",
+				videoUrl: "https://www.youtube.com/embed/P248I_MsbJI",
+				customThumb: 'assets/images/thumbnails/thumb-travel.png',
+				class: "md:col-span-1 md:row-span-1"
+			},
+			{
+				id: 'artproject',
+				title: "Jusqu'ici tout va bien",
+				category: "narrative",
+				type: "Art Project (2nd AC)",
+				videoUrl: "https://www.youtube.com/embed/DLSJOVXYLOs",
+				customThumb: 'assets/images/thumbnails/thumb-art-2.png',
+				class: "md:col-span-1 md:row-span-1"
+			},
+			{
+				id: 'artproject2',
+				title: "Privilege",
+				category: "narrative",
+				type: "Art Project (1st AC)",
+				videoUrl: "https://www.youtube.com/embed/BvczXPrGaOU",
+				customThumb: 'assets/images/thumbnails/thumb-art.png',
+				class: "md:col-span-1 md:row-span-1"
+			}
+		];
+
+		const grid = document.getElementById('grid-container');
+
+		function renderProjects(filter = 'all') {
+			grid.innerHTML = '';
+
+			projects.forEach(project => {
+				// Filter Logic
+				if (filter !== 'all' && project.category !== filter) return;
+
+				// Thumbnail Logic
+				let thumbUrl;
+				if (project.customThumb) {
+					thumbUrl = project.customThumb;
+				} else {
+					// Extract ID from Embed URL
+					const vidId = project.videoUrl.split('/').pop().split('?')[0];
+					thumbUrl = `https://img.youtube.com/vi/${vidId}/maxresdefault.jpg`;
+				}
+
+				// Create Card
+				const card = document.createElement('div');
+				card.className = `bento-item relative group overflow-hidden rounded-xl bg-surface cursor-pointer ${project.class}`;
+
+				// Content
+				card.innerHTML = `
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                         style="background-image: url('${thumbUrl}')">
+                    </div>
+                    
+                    <!-- Hover Overlay -->
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
+                    
+                    <!-- Info -->
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="text-accent text-xs font-bold tracking-widest uppercase mb-1 block">${project.type}</span>
+                        <h3 class="text-white font-heading text-2xl font-bold">${project.title}</h3>
+                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                             <span class="inline-flex items-center gap-2 text-sm text-white/80"><i class="fas fa-play -ml-1"></i> Watch Film</span>
+                        </div>
+                    </div>
+                `;
+
+				// Click Listener
+				// Fix for playback error: Ensure origin is set? Usually iframe src is enough.
+				card.onclick = () => openModal(project.videoUrl);
+				grid.appendChild(card);
+			});
+		}
+
+		// Mobile Menu Logic
+		const mobileBtn = document.getElementById('mobile-menu-btn');
+		const mobileMenu = document.getElementById('mobile-menu');
+
+		if (mobileBtn) {
+			mobileBtn.addEventListener('click', () => {
+				mobileMenu.classList.toggle('hidden');
+			});
+
+			// Close mobile menu on link click
+			document.querySelectorAll('#mobile-menu a').forEach(link => {
+				link.addEventListener('click', () => {
+					mobileMenu.classList.add('hidden');
+				});
+			});
+		}
+
+		// Init
+		renderProjects('all');
+
+		// Filter Handlers
+		function filterWork(category) {
+			// Update Buttons
+			document.querySelectorAll('.filter-btn').forEach(btn => {
+				btn.classList.remove('active', 'bg-white', 'text-black');
+				btn.classList.add('text-white');
+			});
+			event.target.classList.add('active', 'bg-white', 'text-black');
+			event.target.classList.remove('text-white');
+
+			renderProjects(category);
+		}
+
+		// VIDEO MODAL LOGIC
+		const modal = document.getElementById('video-modal');
+		const modalFrame = document.getElementById('modal-iframe');
+
+		function openModal(url) {
+			// Add autoplay to URL
+			const autoPlayUrl = url.includes('?') ? `${url}&autoplay=1` : `${url}?autoplay=1`;
+			modalFrame.src = autoPlayUrl;
+			modal.classList.remove('hidden');
+			modal.classList.add('flex');
+			document.body.style.overflow = 'hidden'; // Lock Scroll
+		}
+
+		function closeModal() {
+			modalFrame.src = ''; // Stop video
+			modal.classList.add('hidden');
+			modal.classList.remove('flex');
+			document.body.style.overflow = 'auto'; // Unlock Scroll
+		}
+
+		// Close on escape key
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+		});
+
+		// Schema Injection for SEO
+		const schema = {
+			"@context": "https://schema.org",
+			"@type": "VideoObject",
+			"name": "Sven Adrian Portfolio",
+			"description": "Cinematic visual storytelling portfolio.",
+			"thumbnailUrl": "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4",
+			"uploadDate": new Date().toISOString()
+		};
+		const script = document.createElement('script');
+		script.type = 'application/ld+json';
+		script.text = JSON.stringify(schema);
+		document.head.appendChild(script);
+
+	</script>
 </body>
 
 </html>
