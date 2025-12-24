@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Burger in Zurich | Sven Adrian</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@300;600;800&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Grid Layout */
+        .burger-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Card Styles */
+        .burger-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .burger-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            height: 200px;
+            background-color: #222;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--color-accent);
+            color: #000;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: none;
+            /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 12px;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.2rem;
+        }
+
+        .modal-header-img {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .ratings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            background: var(--color-surface);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .bar-bg {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        [data-theme="light"] .bar-bg {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: var(--color-accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo"><img src="../assets/images/logo-wide.png" alt="Sven Adrian"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html#portfolio">Work</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="index.html" class="active">Zurich Guide</a></li>
+                    <li><button id="theme-toggle" class="btn" style="padding: 0.5rem; border: none;"><i
+                                class="fas fa-sun"></i></button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div style="margin-bottom: 3rem; text-align: center;">
+                <h1 style="font-size: 3rem;">The Burger Guide</h1>
+                <p style="color: var(--color-text-muted);">Zurich's definitive ranking. Click for full review.</p>
+            </div>
+
+            <div id="burger-grid" class="burger-grid">
+                <!-- JS Populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Modal -->
+    <div id="review-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <div id="modal-image" class="modal-header-img"></div>
+            <div class="modal-body">
+                <h2 id="modal-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Burgermeister</h2>
+                <p id="modal-meta" style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Langstrasse | 2024</p>
+
+                <h3 style="font-family: 'Outfit';">The Verdict</h3>
+                <!-- Ratings -->
+                <div class="ratings-grid" id="modal-ratings"></div>
+
+                <div id="modal-review" style="line-height: 1.8; color: var(--color-text-main);">
+                    <!-- dynamic content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // DATA
+        const burgers = [
+            {
+                id: 1,
+                rank: 1,
+                name: "Burgermeister",
+                place: "Langstrasse",
+                date: "Feb 2024",
+                image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80", // Placeholder
+                ratings: { bun: 9, meat: 9.5, sauce: 9, experience: 8 },
+                review: "The undisputed king. The meat crust is unparalleled in Zurich. It screams flavor. The bun holds up perfectly despite the juiciness. A bit messy, but that's how it should be.",
+                approved: true
+            },
+            {
+                id: 2,
+                rank: 2,
+                name: "The Bite",
+                place: "Brauerstrasse",
+                date: "Nov 2023",
+                image: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80",
+                ratings: { bun: 8.5, meat: 9, sauce: 8.5, experience: 9 },
+                review: "More of a restaurant vibe. Great cocktails to go with it. The burger is taller, gourmet style. Meat quality is top notch.",
+                approved: true
+            },
+            {
+                id: 3,
+                rank: 3,
+                name: "Black Tap",
+                place: "Werdmühleplatz",
+                date: "Dec 2023",
+                image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=80",
+                ratings: { bun: 8, meat: 8.5, sauce: 9, experience: 8.5 },
+                review: "Famous for shakes, but the burger is solid. American style, big portions.",
+                approved: true
+            },
+            {
+                id: 4,
+                rank: 4,
+                name: "Smash Club",
+                place: "Zürichberg",
+                date: "Jan 2024",
+                image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=80",
+                ratings: { bun: 9, meat: 8, sauce: 7.5, experience: 7 },
+                review: "Good smash technique, but slightly inconsistent seasoning.",
+                approved: false
+            },
+            {
+                id: 5,
+                rank: 5,
+                name: "Union Burger",
+                place: "Bleicherweg",
+                date: "Oct 2023",
+                image: "https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?auto=format&fit=crop&w=800&q=80",
+                ratings: { bun: 7, meat: 7.5, sauce: 7, experience: 8 },
+                review: "Decent lunch spot, but lacks the 'wow' factor of the top 3.",
+                approved: false
+            }
+        ];
+
+        const grid = document.getElementById('burger-grid');
+        const modal = document.getElementById('review-modal');
+
+        // Render Grid
+        burgers.sort((a, b) => a.rank - b.rank).forEach(burger => {
+            const card = document.createElement('div');
+            card.className = 'burger-card';
+            card.onclick = () => openModal(burger);
+            card.innerHTML = `
+                <div class="rank-badge">#${burger.rank}</div>
+                <div class="card-image" style="background-image: url('${burger.image}')"></div>
+                <div class="card-content">
+                    <h2>${burger.name}</h2>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem;">${burger.place}</p>
+                    ${burger.approved ? '<span style="color: var(--color-accent); font-size: 0.8rem; display:block; margin-top:0.5rem;"><i class="fas fa-check-circle"></i> Approved Taste</span>' : ''}
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // Modal Logic
+        function openModal(burger) {
+            document.getElementById('modal-title').innerText = burger.name;
+            document.getElementById('modal-meta').innerText = `${burger.place} | ${burger.date}`;
+            document.getElementById('modal-review').innerText = burger.review;
+            document.getElementById('modal-image').style.backgroundImage = `url('${burger.image}')`;
+
+            // Ratings
+            const r = burger.ratings;
+            document.getElementById('modal-ratings').innerHTML = `
+                <div>Bun <b>${r.bun}</b> <div class="bar-bg"><div class="bar-fill" style="width:${r.bun * 10}%"></div></div></div>
+                <div>Meat <b>${r.meat}</b> <div class="bar-bg"><div class="bar-fill" style="width:${r.meat * 10}%"></div></div></div>
+                <div>Sauce <b>${r.sauce}</b> <div class="bar-bg"><div class="bar-fill" style="width:${r.sauce * 10}%"></div></div></div>
+                <div>Exp <b>${r.experience}</b> <div class="bar-bg"><div class="bar-fill" style="width:${r.experience * 10}%"></div></div></div>
+            `;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Lock scroll
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Unlock scroll
+        }
+
+        // Close on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    </script>
+</body>
+
+</html>

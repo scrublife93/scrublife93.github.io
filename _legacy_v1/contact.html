@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Sven Adrian</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@300;600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><img src="assets/images/logo-wide.png" alt="Sven Adrian"></a>
+            <ul class="nav-links">
+                <li><a href="index.html#portfolio">Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="blog/index.html">Zurich Guide</a></li>
+                <li><button id="theme-toggle" class="btn" style="padding: 0.5rem; border: none;"><i
+                            class="fas fa-sun"></i></button></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container" style="max-width: 600px;">
+            <h1 style="text-align: center; margin-bottom: 1rem;">Get In Touch</h1>
+            <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 3rem;">
+                Have a project in mind? Let's create something beautiful together.
+            </p>
+
+            <!-- Formspree Form -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" name="name" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Project Type</label>
+                    <select name="type" class="form-select">
+                        <option value="Wedding">Wedding</option>
+                        <option value="Commercial">Commercial / Brand</option>
+                        <option value="Real Estate">Real Estate</option>
+                        <option value="Event">Event</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea name="message" rows="5" class="form-textarea" required></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+            </form>
+
+            <div style="margin-top: 3rem; text-align: center; font-size: 0.9rem; color: var(--color-text-muted);">
+                Or email me directly at: <a href="mailto:contact@svenadrian.com"
+                    style="color: var(--color-text-main); border-bottom: 1px dotted;">contact@svenadrian.com</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

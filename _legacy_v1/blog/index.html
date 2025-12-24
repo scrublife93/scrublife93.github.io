@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zurich Guide | Sven Adrian</title>
+    <!-- CSS (Adjusted path for subfolder) -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@300;600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo"><img src="../assets/images/logo-wide.png" alt="Sven Adrian"></a>
+            <ul class="nav-links">
+                <li><a href="../index.html#portfolio">Work</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="index.html" class="active">Zurich Guide</a></li>
+                <li><button id="theme-toggle" class="btn" style="padding: 0.5rem; border: none;"><i
+                            class="fas fa-sun"></i></button></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h1 style="margin-bottom: 1rem;">Best of Zurich</h1>
+            <p style="color: var(--color-text-muted); margin-bottom: 4rem; max-width: 600px;">
+                A curated list of my favorite spots in the city. From the juiciest burgers to the crispiest kebabs.
+            </p>
+
+            <div class="grid video-grid">
+
+                <!-- Blog Post 1 -->
+                <a href="burgers.html" class="work-item" style="cursor: pointer; display: block;">
+                    <div class="aspect-video"
+                        style="background: #222; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🍔</span>
+                    </div>
+                    <div class="work-info">
+                        <h3>The Best Burger</h3>
+                        <p>The definitive ranking of Zurich's burger scene.</p>
+                    </div>
+                </a>
+
+                <!-- Blog Post 2 -->
+                <article class="work-item" style="cursor: pointer;">
+                    <div class="aspect-video"
+                        style="background: #222; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🍕</span>
+                    </div>
+                    <div class="work-info">
+                        <h3>Top Pizza Spots</h3>
+                        <p>Coming Soon...</p>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="work-item" style="cursor: pointer;">
+                    <div class="aspect-video"
+                        style="background: #222; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🥙</span>
+                    </div>
+                    <div class="work-info">
+                        <h3>Kebab Guide</h3>
+                        <p>Coming Soon...</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
