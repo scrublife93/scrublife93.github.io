@@ -17,12 +17,13 @@
     <!-- Open Graph / Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://svenadrian.com/blog/burgers.html">
-    <meta property="og:title" content="Zurich Burger Guide - Definitive Ranking">
-    <meta property="og:description" content="The best burgers in Zurich, ranked by svenadrian.com.">
+    <meta property="og:title" content="Definitive Zurich Burger Guide (2025)">
+    <meta property="og:description"
+        content="Discover the ultimate guide to Zurich's best burgers. From smash burgers to gourmet patties, tasted and ranked for 2025.">
     <meta property="og:image"
         content="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80">
 
-    <title>Zurich Burger Guide - Sven Adrian</title>
+    <title>Definitive Zurich Burger Guide (2025) - Sven Adrian</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -121,7 +122,9 @@
             <span class="text-accent text-sm font-bold tracking-widest uppercase mb-4 block animate-fade-in-up">The
                 Definitive Ranking</span>
             <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6">Zurich Burger Guide</h1>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto">Updated for 2025. Click any card for the full breakdown.
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">Discover the ultimate guide to Zurich's best burgers.
+                From smash burgers to gourmet patties, we've tasted and ranked the city's top spots for 2025. Click any
+                card for our detailed verdict, scores, and value ratings.
             </p>
         </div>
     </header>
@@ -183,22 +186,7 @@
         const links = menu.querySelectorAll('a');
 
         btn.addEventListener('click', () => {
-            menu.classList.remove('hidden');
-            menu.classList.add('flex');
-        });
-
-        // Fix for close button properly hiding it
-        const closeMenu = () => {
-            menu.classList.add('hidden');
-            menu.classList.remove('flex');
-        }
-
-        // Close when clicking a link
-        links.forEach(link => link.addEventListener('click', closeMenu));
-
-        // Close button inside menu (reuse the triggers or add specific close btn)
-        // Re-using the toggle button for open/close state logic in simple implementation
-        btn.onclick = () => {
+            // Re-using the toggle button for open/close state logic in simple implementation
             if (menu.classList.contains('hidden')) {
                 menu.classList.remove('hidden');
                 menu.classList.add('flex');
@@ -210,84 +198,57 @@
                 btn.querySelector('i').classList.add('fa-bars');
                 btn.querySelector('i').classList.remove('fa-times');
             }
-        };
+        });
 
-        // BURGER DATA
-        const burgers = [
-            {
-                id: 1,
-                rank: 1,
-                name: "Burgermeister",
-                burgerName: "Cheeseburger", // Default baseline
-                price: "CHF 14.50",
-                place: "Langstrasse",
-                lastTasted: "Feb 2025",
-                image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80",
-                ratings: { bun: 9, meat: 9.5, sauce: 9 },
-                review: "The undisputed king in Zurich. The innovative smash technique creates a meat crust ('Maillard reaction') that is unparalleled in this city. It screams flavor. The bun holds up perfectly despite the extreme juiciness. A bit messy to eat, but that's exactly how a burger should be.",
-                approved: true
-            },
-            {
-                id: 2,
-                rank: 2,
-                name: "The Bite",
-                burgerName: "The Classic",
-                price: "CHF 28.00",
-                place: "Brauerstrasse",
-                lastTasted: "Nov 2023",
-                image: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80",
-                ratings: { bun: 8.5, meat: 9, sauce: 8.5 },
-                review: "More of a restaurant vibe than a fast-food joint. Great cocktails go with it. The burger is taller, gourmet style. Meat quality is top notch, cooked perfectly medium-rare by default.",
-                approved: true
-            },
-            {
-                id: 3,
-                rank: 3,
-                name: "Black Tap",
-                burgerName: "All American",
-                price: "CHF 24.00",
-                place: "Werdmühleplatz",
-                lastTasted: "Dec 2023",
-                image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=80",
-                ratings: { bun: 8, meat: 8.5, sauce: 9 },
-                review: "Famous for their crazy shakes, but the burger is solidly constructed. American style portions. A bit more commercialized than the others, but consistently good.",
-                approved: true
-            },
-            {
-                id: 4,
-                rank: 4,
-                name: "Smash Club",
-                burgerName: "Smash Classic",
-                price: "CHF 18.00",
-                place: "Zürichberg",
-                lastTasted: "Jan 2025",
-                image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=80",
-                ratings: { bun: 9, meat: 8, sauce: 7.5 },
-                review: "Good smash technique, potential to be higher. Inconsistent seasoning on my last visit kept it from the top 3 spots.",
-                approved: false
-            },
-            {
-                id: 5,
-                rank: 5,
-                name: "Union Burger",
-                burgerName: "Union Special",
-                price: "CHF 22.50",
-                place: "Bleicherweg",
-                lastTasted: "Oct 2023",
-                image: "https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?auto=format&fit=crop&w=800&q=80",
-                ratings: { bun: 7, meat: 7.5, sauce: 7 },
-                review: "A decent lunch spot, but lacks the 'wow' factor of the specialized burger joints. Good, but safe.",
-                approved: false
-            }
-        ];
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                btn.querySelector('i').classList.add('fa-bars');
+                btn.querySelector('i').classList.remove('fa-times');
+            });
+        });
 
         const grid = document.getElementById('burger-grid');
         const modal = document.getElementById('review-modal');
 
-        // Render Grid
-        burgers.sort((a, b) => a.rank - b.rank).forEach(burger => {
+        // Initialize
+        // loadBurgers(); // Removed duplicate call
+
+        // Helpers
+        const formatDate = (dateStr) => {
+            if (!dateStr) return '';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+        };
+
+        // Fetch and Render
+        async function loadBurgers() {
+            try {
+                // Determine fetch path (handle both local file viewing and server)
+                // For GitHub pages /blog/, fetch assets from '../assets'
+                const response = await fetch('../assets/data/burgers.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const burgers = await response.json();
+
+                // Sort and Render
+                grid.innerHTML = ''; // Prevent duplicates
+
+                burgers
+                    .filter(b => b.status !== "Planned") // Filter out Planned
+                    .sort((a, b) => a.rank - b.rank)
+                    .forEach(burger => {
+                        renderBurgerCard(burger);
+                    });
+            } catch (error) {
+                console.error('Error loading burgers:', error);
+                grid.innerHTML = '<p class="text-red-500">Failed to load burger data. Please check connection.</p>';
+            }
+        }
+
+        function renderBurgerCard(burger) {
             // Calculate Overall Score
-            const overall = ((burger.ratings.bun + burger.ratings.meat + burger.ratings.sauce) / 3).toFixed(1);
+            const overall = typeof burger.overallScore === 'number' ? burger.overallScore.toFixed(1) : ((burger.ratings.bun + burger.ratings.meat + burger.ratings.sauce) / 3).toFixed(1);
 
             const card = document.createElement('div');
             card.className = 'group relative bg-surface rounded-xl overflow-hidden cursor-pointer border border-white/5 hover:border-accent transition-all duration-500 hover:-translate-y-2';
@@ -299,64 +260,98 @@
                     <img src="${burger.image}" alt="${burger.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100">
                     
                     <!-- Rank Badge -->
-                    <div class="absolute top-4 left-4 w-10 h-10 flex items-center justify-center bg-accent text-black font-heading font-bold rounded-full shadow-lg text-lg">
+                    <div class="absolute top-4 left-4 bg-accent text-black w-10 h-10 flex items-center justify-center font-heading font-bold text-xl rounded shadow-lg z-10">
                         #${burger.rank}
                     </div>
 
-                    <!-- Overall Score Badge -->
-                    <div class="absolute top-4 right-4 bg-black/80 backdrop-blur text-white px-3 py-1 rounded-lg border border-white/10 shadow-lg font-heading font-bold flex items-center gap-1.5">
+                    <!-- Overall Score Badge force-visible -->
+                     <div class="absolute top-4 right-4 bg-black/80 backdrop-blur text-white px-3 py-1 rounded flex items-center gap-2 border border-white/10 shadow-lg z-10">
                         <i class="fas fa-star text-accent text-xs"></i>
-                        <span class="text-lg leading-none">${overall}</span>
+                        <span class="font-heading font-bold">${overall}</span>
                     </div>
 
-                    ${burger.approved ? '<div class="absolute bottom-4 right-4 bg-black/80 backdrop-blur text-accent text-xs px-3 py-1 rounded-full uppercase tracking-widest font-bold border border-accent/20"><i class="fas fa-check-circle mr-1"></i> Approved</div>' : ''}
+                    <!-- Sven Certified Badge (Top 3) -->
+                    ${burger.approved ? `
+                    <div class="absolute bottom-4 right-4 bg-black text-accent text-xs font-bold px-3 py-1 uppercase tracking-widest border border-accent flex items-center gap-2 shadow-lg">
+                        <i class="fas fa-certificate"></i> Sven Certified
+                    </div>
+                    ` : ''}
                 </div>
-                
+
                 <!-- Content -->
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-2">
                         <div>
-                             <h2 class="font-heading text-2xl font-bold text-white group-hover:text-accent transition-colors">${burger.name}</h2>
-                             <p class="text-accent text-xs font-bold uppercase tracking-widest">${burger.burgerName}</p>
-                        </div>
-                        <span class="bg-white/10 text-white text-xs px-2 py-1 rounded font-bold">${burger.price}</span>
-                    </div>
-                    <p class="text-gray-400 text-sm mb-4">${burger.place}</p>
-                    
-                    <!-- Micro Ratings -->
-                    <div class="flex flex-col gap-3 pt-4 border-t border-white/10">
-                        <div class="flex justify-between items-center text-xs text-gray-500">
-                             <div class="flex gap-4">
-                                  <div class="flex items-center gap-1" title="Bun"><i class="fas fa-bread-slice text-accent/70"></i> ${burger.ratings.bun}</div>
-                                  <div class="flex items-center gap-1" title="Meat"><i class="fas fa-drumstick-bite text-accent/70"></i> ${burger.ratings.meat}</div>
-                                  <div class="flex items-center gap-1" title="Sauce"><i class="fas fa-tint text-accent/70"></i> ${burger.ratings.sauce}</div>
-                             </div>
+                            <h3 class="font-heading text-2xl font-bold text-white group-hover:text-accent transition-colors">${burger.name}</h3>
+                            <p class="text-gray-400 text-sm mb-3">${burger.burgerName}</p>
                         </div>
                         <div class="text-right">
-                             <span class="text-gray-600 uppercase tracking-wider text-[0.6rem]">Last Tasted: ${burger.lastTasted}</span>
+                             <span class="block text-accent font-bold font-heading">${burger.price}</span>
+                             <span class="text-xs text-gray-500 uppercase tracking-wider">${formatDate(burger.lastTasted)}</span>
+                        </div>
+                    </div>
+
+                    <!-- SEO Verdict -->
+                    ${burger.seoVerdict ? `<p class="text-gray-300 text-sm italic border-l-2 border-accent/50 pl-3 mb-4 leading-relaxed">"${burger.seoVerdict}"</p>` : ''}
+
+                     <!-- Mini Ratings Preview -->
+                    <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-white/5">
+                        <div class="text-center">
+                            <span class="block text-[10px] text-gray-500 uppercase tracking-wider">Bun</span>
+                            <span class="text-accent font-bold text-sm">${burger.ratings.bun}</span>
+                        </div>
+                        <div class="text-center border-l border-white/5">
+                             <span class="block text-[10px] text-gray-500 uppercase tracking-wider">Meat</span>
+                            <span class="text-accent font-bold text-sm">${burger.ratings.meat}</span>
+                        </div>
+                         <div class="text-center border-l border-white/5">
+                             <span class="block text-[10px] text-gray-500 uppercase tracking-wider">Sauce</span>
+                            <span class="text-accent font-bold text-sm">${burger.ratings.sauce}</span>
                         </div>
                     </div>
                 </div>
             `;
             grid.appendChild(card);
-        });
+        }
 
         function openModal(burger) {
             document.getElementById('modal-title').innerText = burger.name;
             document.getElementById('modal-meta').innerText = `${burger.burgerName} | ${burger.price}`;
-            document.getElementById('modal-review').innerText = burger.review;
+
+            // Use SEO Review if available, else fallback to manual review
+            document.getElementById('modal-review').innerText = burger.seoReview || burger.review;
+
             document.getElementById('modal-image').style.backgroundImage = `url('${burger.image}')`;
 
             // Badge and Overall Score
-            const overall = ((burger.ratings.bun + burger.ratings.meat + burger.ratings.sauce) / 3).toFixed(1);
+            const overall = typeof burger.overallScore === 'number' ? burger.overallScore.toFixed(1) : ((burger.ratings.bun + burger.ratings.meat + burger.ratings.sauce) / 3).toFixed(1);
 
             const badgeContainer = document.getElementById('modal-badge-container');
-            let badgesHTML = `<div class="bg-surface border border-white/20 text-white px-4 py-2 rounded font-bold uppercase tracking-widest text-sm flex items-center gap-2"><i class="fas fa-star text-accent"></i> Score: <span class="text-accent text-lg">${overall}</span></div>`;
+
+            // Shared styling for all badges to ensure identical height/size
+            const badgeClass = "h-10 px-4 rounded font-bold uppercase tracking-widest text-sm flex items-center gap-2 shadow-lg whitespace-nowrap";
+
+            let badgesHTML = `
+                <div class="bg-surface border border-white/20 text-white ${badgeClass}">
+                    <i class="fas fa-star text-accent"></i> Score: <span class="text-accent font-bold">${overall}</span>
+                </div>`;
 
             if (burger.approved) {
-                badgesHTML += '<span class="bg-accent text-black px-4 py-2 rounded font-bold uppercase tracking-widest text-sm shadow-[0_0_15px_rgba(251,191,36,0.5)] inline-flex items-center"><i class="fas fa-award mr-2"></i>Sven Certified</span>';
+                badgesHTML += `
+                <div class="bg-accent text-black ${badgeClass} shadow-[0_0_15px_rgba(251,191,36,0.5)]">
+                    <i class="fas fa-award"></i> Sven Certified
+                </div>`;
             }
-            badgeContainer.innerHTML = `<div class="flex items-center gap-3">${badgesHTML}</div>`;
+
+            // Value For Money Badge
+            if (burger.valueForMoney) {
+                badgesHTML += `
+                <div class="bg-green-900/50 text-green-400 border border-green-500/30 ${badgeClass}">
+                    <i class="fas fa-money-bill-wave"></i> ${burger.valueForMoney}
+                </div>`;
+            }
+
+            badgeContainer.innerHTML = `<div class="flex flex-wrap items-center gap-3">${badgesHTML}</div>`;
 
             // Ratings
             const r = burger.ratings;
@@ -391,6 +386,9 @@
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
+
+        // Initialize
+        loadBurgers();
     </script>
 </body>
 
