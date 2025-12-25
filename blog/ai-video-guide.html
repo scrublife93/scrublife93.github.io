@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QY7VWT9TQD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-QY7VWT9TQD');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Viral "Set-Hopper" AI Video Guide - Sven Adrian</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;500;800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#111827',     // Deep charcoal
+                        surface: '#1f2937', // Lighter charcoal
+                        accent: '#fbbf24',  // Amber/Gold
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-bg text-white font-body antialiased selection:bg-accent selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 p-6 bg-gradient-to-b from-black/90 to-transparent text-white transition-all duration-300"
+        id="navbar">
+        <div class="container mx-auto flex justify-between items-center">
+
+            <!-- Logo -->
+            <a href="../index.html" class="font-heading font-bold text-2xl tracking-tighter uppercase">Sven Adrian<span
+                    class="text-accent">.</span></a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-12 font-heading text-sm tracking-widest uppercase">
+                <a href="../index.html#work"
+                    class="text-gray-300 hover:text-accent transition-colors duration-300 relative group">
+                    Work
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="../index.html#about"
+                    class="text-gray-300 hover:text-accent transition-colors duration-300 relative group">
+                    About
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html"
+                    class="text-gray-300 hover:text-accent transition-colors duration-300 relative group">
+                    Guides
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="../index.html#contact"
+                    class="px-6 py-2 border border-white/20 hover:border-accent hover:text-accent transition-all duration-300">
+                    Contact
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl z-50 relative"><i class="fas fa-bars"></i></button>
+
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu"
+                class="hidden fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center gap-8 text-2xl font-heading font-bold uppercase tracking-widest">
+                <a href="../index.html#work" class="hover:text-accent">Work</a>
+                <a href="../index.html#about" class="hover:text-accent">About</a>
+                <a href="index.html" class="hover:text-accent">Guides</a>
+                <a href="../index.html#contact" class="hover:text-accent">Contact</a>
+
+                <!-- Mobile Socials -->
+                <div class="flex gap-6 mt-4 text-xl">
+                    <a href="https://instagram.com/svesh" target="_blank" class="hover:text-accent transition-colors"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@svenadrian" target="_blank"
+                        class="hover:text-accent transition-colors"><i class="fab fa-youtube"></i></a>
+                    <a href="https://tiktok.com/@svesher" target="_blank" class="hover:text-accent transition-colors"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/in/sven-schuepbach" target="_blank"
+                        class="hover:text-accent transition-colors"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-48 pb-12 px-4 bg-surface text-center mb-12 border-b border-white/5 relative overflow-hidden">
+        <div class="container mx-auto relative z-10">
+            <span
+                class="text-accent text-sm font-bold tracking-widest uppercase mb-4 block animate-fade-in-up">Tutorial</span>
+            <h1 class="font-heading text-4xl md:text-6xl font-bold mb-6 max-w-4xl mx-auto">The Viral "Set-Hopper" AI
+                Video Guide</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">Create seamless transitions between movie sets with AI.
+            </p>
+        </div>
+        <!-- Background Glow -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-3xl bg-accent/5 blur-[120px] rounded-full pointer-events-none z-0">
+        </div>
+    </header>
+
+    <!-- Content -->
+    <article class="pb-32 px-4 md:px-8 max-w-4xl mx-auto">
+
+        <!-- Video Embed -->
+        <div class="mb-16 aspect-[9/16] max-w-sm mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yu_he4M-9Xc"
+                title="Set-Hopper Example" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+
+        <!-- Steps -->
+        <div class="space-y-16">
+
+            <!-- Step 1 -->
+            <section class="relative pl-8 md:pl-0">
+                <div
+                    class="hidden md:block absolute left-[-4rem] top-0 text-accent/20 font-heading text-8xl font-bold -z-10">
+                    01</div>
+                <h2 class="font-heading text-3xl font-bold text-white mb-4"><span class="text-accent md:hidden">01.
+                    </span>The Reference Selfie</h2>
+                <div class="prose prose-invert prose-lg text-gray-300">
+                    <p>Choose a high-quality photo of yourself. This is your <strong>"Identity Lock."</strong> Ensure
+                        your face is clear and the lighting is neutral. You will use this same image for every scene to
+                        keep your look consistent.</p>
+                </div>
+            </section>
+
+            <!-- Step 2 -->
+            <section class="relative pl-8 md:pl-0">
+                <div
+                    class="hidden md:block absolute left-[-4rem] top-0 text-accent/20 font-heading text-8xl font-bold -z-10">
+                    02</div>
+                <h2 class="font-heading text-3xl font-bold text-white mb-4"><span class="text-accent md:hidden">02.
+                    </span>Create the Scenes <span class="text-sm align-middle text-gray-500 font-normal ml-2">(Nano
+                        Banana)</span></h2>
+                <div class="prose prose-invert prose-lg text-gray-300">
+                    <p>Go to <strong>Higgsfield.ai</strong>, select the <strong>Nano Banana Pro</strong> model, and
+                        upload your reference photo. For Quality select <strong>4K</strong>.</p>
+
+                    <div class="bg-surface p-6 rounded-lg border border-white/10 my-6">
+                        <h3 class="text-xs font-bold text-accent uppercase tracking-widest mb-3">Prompt</h3>
+                        <p class="font-mono text-sm text-gray-300 whitespace-pre-wrap">Create a realistic, high-fidelity
+                            (8K) image based on the attached reference photo. Maintain the exact facial features, skin
+                            tone, bone structure, hairstyle, and expression of the attached person, with no alteration
+                            or face swapping.
+
+                            Selfie-mode portrait of the attached man on the left side, taking the picture (same outfit)
+                            together with [Actor / Character] from [Movie/TV Show]. The background shows a film set of a
+                            famous scene with [Specific Character] and the rest of the actors. The other actors are
+                            acting.</p>
+                    </div>
+                    <p>Generate one image for every "celebrity stop" you want in your video.</p>
+                </div>
+            </section>
+
+            <!-- Step 3 -->
+            <section class="relative pl-8 md:pl-0">
+                <div
+                    class="hidden md:block absolute left-[-4rem] top-0 text-accent/20 font-heading text-8xl font-bold -z-10">
+                    03</div>
+                <h2 class="font-heading text-3xl font-bold text-white mb-4"><span class="text-accent md:hidden">03.
+                    </span>Create the Transitions <span
+                        class="text-sm align-middle text-gray-500 font-normal ml-2">(Kling)</span></h2>
+                <div class="prose prose-invert prose-lg text-gray-300">
+                    <p>Once you have your images, go to Video. Use the <strong>Kling 2.5 Turbo</strong> model in
+                        Higgsfield to animate the "run" between sets. Use the <strong>First Frame / Last Frame</strong>
+                        feature. I made a 5s video in 1080p resolution.</p>
+
+                    <ul class="list-disc pl-5 mt-4 space-y-2 mb-6">
+                        <li><strong>First Frame:</strong> Your selfie with Celebrity A.</li>
+                        <li><strong>Last Frame:</strong> Your selfie with Celebrity B.</li>
+                    </ul>
+
+                    <img src="../assets/images/blog/set-hopper/kling-interface.png" alt="Kling Interface Settings"
+                        class="w-full rounded-lg border border-white/10 mb-6">
+
+                    <div class="bg-surface p-6 rounded-lg border border-white/10 my-6">
+                        <h3 class="text-xs font-bold text-accent uppercase tracking-widest mb-3">The Kling Prompt</h3>
+                        <p class="font-mono text-sm text-gray-300 whitespace-pre-wrap">POV VLOG, Selfie Mode View: The
+                            man runs to the right while keeping his torso and face oriented toward the camera, without
+                            spinning. always with extended arm because of the selfie mode. Crew working on set in the
+                            background.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 4 -->
+            <section class="relative pl-8 md:pl-0">
+                <div
+                    class="hidden md:block absolute left-[-4rem] top-0 text-accent/20 font-heading text-8xl font-bold -z-10">
+                    04</div>
+                <h2 class="font-heading text-3xl font-bold text-white mb-4"><span class="text-accent md:hidden">04.
+                    </span>Final Cut Pro Editing</h2>
+                <div class="prose prose-invert prose-lg text-gray-300">
+                    <p>Import your generated clips into Final Cut Pro.</p>
+                    <p><strong>Sound Effects:</strong> Layer in "Set Ambience" (chatter, equipment moving) and a
+                        "Whoosh" or "Wind" effect during the running transition.</p>
+                </div>
+            </section>
+
+            <!-- Downloads -->
+            <section class="pt-8 border-t border-white/10">
+                <h2 class="font-heading text-2xl font-bold text-white mb-6">Assets</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-surface p-4 rounded-lg flex items-center gap-4 border border-white/10">
+                        <div class="bg-black p-2 rounded w-16 h-16 flex items-center justify-center">
+                            <img src="../assets/images/blog/set-hopper/logo-box.png" class="w-full">
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Square Logo</h3>
+                            <a href="../assets/images/blog/set-hopper/logo-box.png" download
+                                class="text-accent text-sm hover:underline">Download PNG</a>
+                        </div>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg flex items-center gap-4 border border-white/10">
+                        <div class="bg-black p-2 rounded w-32 h-16 flex items-center justify-center">
+                            <img src="../assets/images/blog/set-hopper/logo-wide.png" class="w-full">
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Wide Logo</h3>
+                            <a href="../assets/images/blog/set-hopper/logo-wide.png" download
+                                class="text-accent text-sm hover:underline">Download PNG</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 px-4 border-t border-white/10">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-500 text-sm">&copy; 2024 Sven Adrian. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = menu.querySelectorAll('a');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            btn.querySelector('i').classList.toggle('fa-bars');
+            btn.querySelector('i').classList.toggle('fa-times');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                btn.querySelector('i').classList.add('fa-bars');
+                btn.querySelector('i').classList.remove('fa-times');
+            });
+        });
+    </script>
+</body>
+
+</html>
