@@ -1,0 +1,140 @@
+[
+    {
+        "id": "2d3b0d18-1658-80d9-a79a-c76627b2f32f",
+        "status": "Reviewed",
+        "rank": 1,
+        "name": "",
+        "burgerName": "The Cheeseburger",
+        "price": "15.90 CHF",
+        "place": "Zurich",
+        "lastTasted": "2025-11-27",
+        "image": "../assets/images/burgers/_1.jpg",
+        "ratings": {
+            "bun": 9,
+            "meat": 10,
+            "sauce": 9
+        },
+        "review": "Best burger in zurich. Fantastic bun. Extremely tasty meat. Excellent Sauce. Never disappoints. Top Tier burger worldwide. POtato bun. ",
+        "approved": true,
+        "valueScore": 11.9,
+        "valueForMoney": 0,
+        "shortVerdict": "",
+        "seoReview": "Finding the definitive burger in Zurich often feels like an endless quest, but Burgermeister consistently sets the gold standard. Their signature cheeseburger centers around a patty that is flawlessly seasoned and seared, capturing an intensity of beefy flavor that is exceptionally rare. This is cradled in a pillowy potato bun that maintains its structural integrity while absorbing just the right amount of juice. Complemented by a rich sauce that perfectly ties the savory components together, it is a masterclass in balance and execution. For those seeking a reliable, high-quality meal that transcends local hype, this remains an essential destination for any serious enthusiast.",
+        "seoVerdict": "The undisputed gold standard for burgers in the heart of Zurich."
+    },
+    {
+        "id": "2d3b0d18-1658-806d-9e25-d1b7f30d1d12",
+        "status": "Reviewed",
+        "rank": 2,
+        "name": "",
+        "burgerName": "The Classic",
+        "price": "27.00 CHF",
+        "place": "Zurich",
+        "lastTasted": "2024-03-22",
+        "image": "../assets/images/burgers/_1.jpeg",
+        "ratings": {
+            "bun": 8,
+            "meat": 8,
+            "sauce": 8
+        },
+        "review": "Fantastic burger. Restaurant not takeout. Fun vibe. Great taste. Excellent fries to accomodate the dining experience",
+        "approved": true,
+        "valueScore": 5.9,
+        "valueForMoney": 0,
+        "shortVerdict": "",
+        "seoReview": "The Bite in Zurich offers a premium dining experience for those who appreciate a burger crafted with care. The Classic features a robust patty paired with a well-structured bun and a flavorful sauce that balances every bite. Unlike a typical takeout spot, the restaurant boasts a vibrant atmosphere that makes it a great choice for a social evening. While the cost reflects the upscale market, the inclusion of exceptionally crispy fries elevates the meal into a complete, high-quality dining event.",
+        "seoVerdict": "A well-executed burger classic served in a vibrant, sit-down restaurant setting."
+    },
+    {
+        "id": "2d3b0d18-1658-8076-ab9a-e7992602de30",
+        "status": "Reviewed",
+        "rank": 3,
+        "name": "",
+        "burgerName": "All American",
+        "price": "17.00 CHF",
+        "place": "Zurich",
+        "lastTasted": "2024-10-17",
+        "image": "../assets/images/burgers/_1.webp",
+        "ratings": {
+            "bun": 8,
+            "meat": 8,
+            "sauce": 7
+        },
+        "review": "Big burger. Special burger combinations. Great taste. Feels special\u00a0",
+        "approved": true,
+        "valueScore": 9.2,
+        "valueForMoney": 0,
+        "shortVerdict": "",
+        "seoReview": "Located in the heart of Zurich, Black Tap delivers a burger experience that stands out for its sheer scale and creative flair. The All American burger is a testament to classic flavors, featuring a well-prepared patty nestled in a fresh bun that maintains its structural integrity. While the sauce provides a solid foundation, the overall composition makes the meal feel like a special occasion. For those seeking a substantial meal that balances craft with impressive portions, this spot offers a level of satisfaction that is increasingly hard to find in the city's food scene.",
+        "seoVerdict": "A massive, high-quality burger that delivers an exceptionally satisfying dining experience."
+    },
+    {
+        "id": "2d4b0d18-1658-81af-a705-dd252c149a08",
+        "status": "Reviewed",
+        "rank": 4,
+        "name": "",
+        "burgerName": "Smash Cheese Burger",
+        "price": "19.50 CHF",
+        "place": "Zurich",
+        "lastTasted": "2025-12-25",
+        "image": "../assets/images/burgers/_1.jpeg",
+        "ratings": {
+            "bun": 9,
+            "meat": 7,
+            "sauce": 7
+        },
+        "review": "The meat was slightly dry on the outside, but the overall flavor was good. The bun was fluffy, tasted great, and held everything together nicely. The sauce was enjoyable as well, though the cocktail-style flavor was a bit too strong for my taste. Overall, it was a very good burger. Not a top-tier favorite, but well balanced and flavorful. One note on presentation: the patty was oversized for the bun and barely fit into the packaging.",
+        "approved": false,
+        "valueScore": 7.7,
+        "valueForMoney": 0,
+        "shortVerdict": "A very good, well-flavored burger with a great bun and bold sauce, slightly held back by a dry exterior and an oversized patty.",
+        "seoReview": "The Smash Cheese Burger at The Smash Burger Bear in Zurich delivers a robust flavor profile that hits many of the right notes. The highlight of the experience is the bun; it is remarkably fluffy, flavorful, and maintains its structural integrity against the weight of the ingredients. While the patty provides a deep, savory taste, the exterior was slightly over-seared, leading to a dry texture. Additionally, the meat was oversized for the bun, causing a bit of a mismatch in the presentation and packaging. The signature sauce leans into a bold, cocktail-style profile that offers a sharp kick, though it risks being a bit dominant for those who prefer the beef to take center stage. It remains a well-balanced and satisfying option for anyone seeking a quality smash burger in the city.",
+        "seoVerdict": "Bold Zurich smash burger featuring a superb bun and oversized patty."
+    },
+    {
+        "id": "2d4b0d18-1658-801c-b5e6-faf9c8ec6897",
+        "status": "Reviewed",
+        "rank": 5,
+        "name": "",
+        "burgerName": "Double Cheeseburger",
+        "price": "18.00 CHF",
+        "place": "Zurich",
+        "lastTasted": "2024-12-18",
+        "image": "../assets/images/burgers/_1.webp",
+        "ratings": {
+            "bun": 7,
+            "meat": 7,
+            "sauce": 7
+        },
+        "review": "Delivery only smash burger. Good taste. Good option for delivery. Not a standout but good. ",
+        "approved": false,
+        "valueScore": 7.8,
+        "valueForMoney": 0,
+        "shortVerdict": "",
+        "seoReview": "Smash Club in Zurich offers a dependable delivery-only experience for fans of the classic smash burger. The Double Cheeseburger features well-seasoned patties and a bun that maintains its integrity during transport. While the flavor profile is consistent and the sauce adds a pleasant touch, it lacks the unique character of a standout destination meal. It remains a solid, high-value choice for a night in when you want a quality burger delivered without any unnecessary frills.",
+        "seoVerdict": "A dependable Zurich delivery choice for a classic, well-executed smash burger."
+    },
+    {
+        "id": "2d4b0d18-1658-8072-a717-f5cc7ca2f7c9",
+        "status": "Planned",
+        "rank": 6,
+        "name": "",
+        "burgerName": "Dirty Harry",
+        "price": "",
+        "place": "",
+        "lastTasted": "",
+        "image": "../assets/images/burgers/_1.jpg",
+        "ratings": {
+            "bun": 0,
+            "meat": 0,
+            "sauce": 0
+        },
+        "review": "",
+        "approved": false,
+        "valueScore": 0,
+        "valueForMoney": 0,
+        "shortVerdict": "",
+        "seoReview": "",
+        "seoVerdict": ""
+    }
+]
