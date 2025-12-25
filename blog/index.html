@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guides | Sven Adrian</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;500;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#111827',     // Deep charcoal
+                        surface: '#1f2937', // Lighter charcoal
+                        accent: '#fbbf24',  // Amber/Gold
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-bg text-white font-body antialiased selection:bg-accent selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 p-6 bg-gradient-to-b from-black/90 to-transparent text-white transition-all duration-300"
+        id="navbar">
+        <div class="container mx-auto flex justify-between items-center">
+
+            <!-- Logo -->
+            <a href="../index.html" class="font-heading font-bold text-2xl tracking-tighter uppercase">Sven Adrian<span
+                    class="text-accent">.</span></a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-12 font-heading text-sm tracking-widest uppercase">
+                <a href="../index.html#work"
+                    class="text-gray-300 hover:text-accent transition-colors duration-300 relative group">
+                    Work
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="../index.html#about"
+                    class="text-gray-300 hover:text-accent transition-colors duration-300 relative group">
+                    About
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html" class="text-accent transition-colors duration-300 relative group">
+                    Guides
+                    <span class="absolute -bottom-2 left-0 w-full h-[1px] bg-accent transition-all duration-300"></span>
+                </a>
+                <a href="../index.html#contact"
+                    class="px-6 py-2 border border-white/20 hover:border-accent hover:text-accent transition-all duration-300">
+                    Contact
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl z-50 relative"><i class="fas fa-bars"></i></button>
+
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu"
+                class="hidden fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center gap-8 text-2xl font-heading font-bold uppercase tracking-widest">
+                <a href="../index.html#work" class="hover:text-accent">Work</a>
+                <a href="../index.html#about" class="hover:text-accent">About</a>
+                <a href="index.html" class="text-accent">Guides</a>
+                <a href="../index.html#contact" class="hover:text-accent">Contact</a>
+
+                <!-- Mobile Socials -->
+                <div class="flex gap-6 mt-4 text-xl">
+                    <a href="https://instagram.com/svesh" target="_blank" class="hover:text-accent transition-colors"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@svenadrian" target="_blank"
+                        class="hover:text-accent transition-colors"><i class="fab fa-youtube"></i></a>
+                    <a href="https://tiktok.com/@svesher" target="_blank" class="hover:text-accent transition-colors"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/in/sven-schuepbach" target="_blank"
+                        class="hover:text-accent transition-colors"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-48 pb-24 px-4">
+        <div class="container mx-auto text-center">
+            <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6">Curated Guides</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                A collection of personal recommendations, insights, and stories from Zurich and beyond.
+            </p>
+        </div>
+    </header>
+
+    <!-- Guides Grid -->
+    <section class="pb-32 px-4 md:px-8">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card 1: Burger Guide -->
+                <a href="burgers.html"
+                    class="group block bg-surface rounded-xl overflow-hidden border border-white/5 hover:border-accent transition-all duration-500 hover:-translate-y-2">
+                    <div class="aspect-video bg-gray-800 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+                            alt="Burger Guide"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+                        <div
+                            class="absolute top-4 left-4 bg-accent text-black text-xs font-bold uppercase tracking-widest px-3 py-1 rounded">
+                            Zurich
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-heading text-2xl font-bold mb-3 group-hover:text-accent transition-colors">The
+                            Ultimate Burger Guide</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            My definitive ranking of the best burgers in town. From smash burgers to gourmet stacks.
+                        </p>
+                        <span class="text-accent text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                            Read Guide <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 px-4 border-t border-white/10">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-500 text-sm">&copy; 2024 Sven Adrian. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = menu.querySelectorAll('a');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            btn.querySelector('i').classList.toggle('fa-bars');
+            btn.querySelector('i').classList.toggle('fa-times');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                btn.querySelector('i').classList.add('fa-bars');
+                btn.querySelector('i').classList.remove('fa-times');
+            });
+        });
+    </script>
+</body>
+
+</html>
