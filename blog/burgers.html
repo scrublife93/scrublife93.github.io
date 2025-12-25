@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QY7VWT9TQD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-QY7VWT9TQD');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zurich Burger Guide - Sven Adrian</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;500;800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#111827',     // Deep charcoal
+                        surface: '#1f2937', // Lighter charcoal
+                        accent: '#fbbf24',  // Amber/Gold
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-bg text-white font-body antialiased selection:bg-accent selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 p-6 bg-gradient-to-b from-black/90 to-transparent text-white transition-all duration-300"
+        id="navbar">
+        <div class="container mx-auto flex justify-between items-center">
+
+            <!-- Logo -->
+            <a href="../index.html" class="font-heading font-bold text-2xl tracking-tighter uppercase">Sven Adrian<span
+                    class="text-accent">.</span></a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-12 font-heading text-sm tracking-widest uppercase">
+                <a href="../index.html#work"
+                    class="text-gray-300 hover:text-accent transition-colors duration-300 relative group">
+                    Work
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="../index.html#about"
+                    class="text-gray-300 hover:text-accent transition-colors duration-300 relative group">
+                    About
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html"
+                    class="text-gray-300 hover:text-accent transition-colors duration-300 relative group">
+                    Guides
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="../index.html#contact"
+                    class="px-6 py-2 border border-white/20 hover:border-accent hover:text-accent transition-all duration-300">
+                    Contact
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl z-50 relative"><i class="fas fa-bars"></i></button>
+
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu"
+                class="hidden fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center gap-8 text-2xl font-heading font-bold uppercase tracking-widest">
+                <a href="../index.html#work" class="hover:text-accent">Work</a>
+                <a href="../index.html#about" class="hover:text-accent">About</a>
+                <a href="index.html" class="hover:text-accent">Guides</a>
+                <a href="../index.html#contact" class="hover:text-accent">Contact</a>
+
+                <!-- Mobile Socials -->
+                <div class="flex gap-6 mt-4 text-xl">
+                    <a href="https://instagram.com/svesh" target="_blank" class="hover:text-accent transition-colors"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@svenadrian" target="_blank"
+                        class="hover:text-accent transition-colors"><i class="fab fa-youtube"></i></a>
+                    <a href="https://tiktok.com/@svesher" target="_blank" class="hover:text-accent transition-colors"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/in/sven-schuepbach" target="_blank"
+                        class="hover:text-accent transition-colors"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-48 pb-12 px-4 bg-surface text-center mb-12 border-b border-white/5">
+        <div class="container mx-auto">
+            <span class="text-accent text-sm font-bold tracking-widest uppercase mb-4 block animate-fade-in-up">The
+                Definitive Ranking</span>
+            <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6">Zurich Burger Guide</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">Updated for 2025. Click any card for the full breakdown.
+            </p>
+        </div>
+    </header>
+
+    <!-- Burger Grid -->
+    <section class="pb-32 px-4 md:px-8">
+        <div class="container mx-auto">
+            <div id="burger-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- JS Populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Modal -->
+    <div id="review-modal" class="fixed inset-0 z-[100] hidden bg-black/95 items-center justify-center p-4">
+        <button onclick="closeModal()"
+            class="absolute top-6 right-6 text-white text-4xl hover:text-accent transition-colors z-[110]">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div
+            class="w-full max-w-4xl bg-surface rounded-xl border border-white/10 overflow-hidden relative max-h-[90vh] overflow-y-auto animate-fade-in-up">
+            <!-- Modal Header Image -->
+            <div id="modal-image" class="h-64 md:h-80 w-full bg-cover bg-center"></div>
+
+            <div class="p-8 md:p-12">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                    <div>
+                        <h2 id="modal-title" class="font-heading text-4xl font-bold text-white mb-2"></h2>
+                        <p id="modal-meta" class="text-accent uppercase tracking-widest text-sm font-bold"></p>
+                    </div>
+                    <div id="modal-badge-container"></div>
+                </div>
+
+                <!-- Ratings -->
+                <div class="bg-black/30 p-6 rounded-xl border border-white/5 mb-8">
+                    <h3 class="font-heading text-lg font-bold mb-4 uppercase tracking-widest text-gray-400">Score
+                        Breakdown</h3>
+                    <div class="grid grid-cols-2 gap-x-8 gap-y-4 text-sm" id="modal-ratings">
+                        <!-- JS injected -->
+                    </div>
+                </div>
+
+                <!-- Review Text -->
+                <div class="prose prose-invert max-w-none">
+                    <h3 class="font-heading text-2xl font-bold mb-4">The Verdict</h3>
+                    <p id="modal-review" class="text-gray-300 text-lg leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = menu.querySelectorAll('a');
+
+        btn.addEventListener('click', () => {
+            menu.classList.remove('hidden');
+            menu.classList.add('flex');
+        });
+
+        // Fix for close button properly hiding it
+        const closeMenu = () => {
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+        }
+
+        // Close when clicking a link
+        links.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Close button inside menu (reuse the triggers or add specific close btn)
+        // Re-using the toggle button for open/close state logic in simple implementation
+        btn.onclick = () => {
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                btn.querySelector('i').classList.remove('fa-bars');
+                btn.querySelector('i').classList.add('fa-times');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                btn.querySelector('i').classList.add('fa-bars');
+                btn.querySelector('i').classList.remove('fa-times');
+            }
+        };
+
+        // BURGER DATA
+        const burgers = [
+            {
+                id: 1,
+                rank: 1,
+                name: "Burgermeister",
+                burgerName: "Cheeseburger", // Default baseline
+                price: "CHF 14.50",
+                place: "Langstrasse",
+                lastTasted: "Feb 2025",
+                image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80",
+                ratings: { bun: 9, meat: 9.5, sauce: 9 },
+                review: "The undisputed king in Zurich. The innovative smash technique creates a meat crust ('Maillard reaction') that is unparalleled in this city. It screams flavor. The bun holds up perfectly despite the extreme juiciness. A bit messy to eat, but that's exactly how a burger should be.",
+                approved: true
+            },
+            {
+                id: 2,
+                rank: 2,
+                name: "The Bite",
+                burgerName: "The Classic",
+                price: "CHF 28.00",
+                place: "Brauerstrasse",
+                lastTasted: "Nov 2023",
+                image: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80",
+                ratings: { bun: 8.5, meat: 9, sauce: 8.5 },
+                review: "More of a restaurant vibe than a fast-food joint. Great cocktails go with it. The burger is taller, gourmet style. Meat quality is top notch, cooked perfectly medium-rare by default.",
+                approved: true
+            },
+            {
+                id: 3,
+                rank: 3,
+                name: "Black Tap",
+                burgerName: "All American",
+                price: "CHF 24.00",
+                place: "Werdmühleplatz",
+                lastTasted: "Dec 2023",
+                image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=80",
+                ratings: { bun: 8, meat: 8.5, sauce: 9 },
+                review: "Famous for their crazy shakes, but the burger is solidly constructed. American style portions. A bit more commercialized than the others, but consistently good.",
+                approved: true
+            },
+            {
+                id: 4,
+                rank: 4,
+                name: "Smash Club",
+                burgerName: "Smash Classic",
+                price: "CHF 18.00",
+                place: "Zürichberg",
+                lastTasted: "Jan 2025",
+                image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=80",
+                ratings: { bun: 9, meat: 8, sauce: 7.5 },
+                review: "Good smash technique, potential to be higher. Inconsistent seasoning on my last visit kept it from the top 3 spots.",
+                approved: false
+            },
+            {
+                id: 5,
+                rank: 5,
+                name: "Union Burger",
+                burgerName: "Union Special",
+                price: "CHF 22.50",
+                place: "Bleicherweg",
+                lastTasted: "Oct 2023",
+                image: "https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?auto=format&fit=crop&w=800&q=80",
+                ratings: { bun: 7, meat: 7.5, sauce: 7 },
+                review: "A decent lunch spot, but lacks the 'wow' factor of the specialized burger joints. Good, but safe.",
+                approved: false
+            }
+        ];
+
+        const grid = document.getElementById('burger-grid');
+        const modal = document.getElementById('review-modal');
+
+        // Render Grid
+        burgers.sort((a, b) => a.rank - b.rank).forEach(burger => {
+            // Calculate Overall Score
+            const overall = ((burger.ratings.bun + burger.ratings.meat + burger.ratings.sauce) / 3).toFixed(1);
+
+            const card = document.createElement('div');
+            card.className = 'group relative bg-surface rounded-xl overflow-hidden cursor-pointer border border-white/5 hover:border-accent transition-all duration-500 hover:-translate-y-2';
+            card.onclick = () => openModal(burger);
+
+            card.innerHTML = `
+                <!-- Image -->
+                <div class="h-64 bg-gray-800 relative overflow-hidden">
+                    <img src="${burger.image}" alt="${burger.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100">
+                    
+                    <!-- Rank Badge -->
+                    <div class="absolute top-4 left-4 w-10 h-10 flex items-center justify-center bg-accent text-black font-heading font-bold rounded-full shadow-lg text-lg">
+                        #${burger.rank}
+                    </div>
+
+                    <!-- Overall Score Badge -->
+                    <div class="absolute top-4 right-4 bg-black/80 backdrop-blur text-white px-3 py-1 rounded-lg border border-white/10 shadow-lg font-heading font-bold flex items-center gap-1.5">
+                        <i class="fas fa-star text-accent text-xs"></i>
+                        <span class="text-lg leading-none">${overall}</span>
+                    </div>
+
+                    ${burger.approved ? '<div class="absolute bottom-4 right-4 bg-black/80 backdrop-blur text-accent text-xs px-3 py-1 rounded-full uppercase tracking-widest font-bold border border-accent/20"><i class="fas fa-check-circle mr-1"></i> Approved</div>' : ''}
+                </div>
+                
+                <!-- Content -->
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                             <h2 class="font-heading text-2xl font-bold text-white group-hover:text-accent transition-colors">${burger.name}</h2>
+                             <p class="text-accent text-xs font-bold uppercase tracking-widest">${burger.burgerName}</p>
+                        </div>
+                        <span class="bg-white/10 text-white text-xs px-2 py-1 rounded font-bold">${burger.price}</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">${burger.place}</p>
+                    
+                    <!-- Micro Ratings -->
+                    <div class="flex flex-col gap-3 pt-4 border-t border-white/10">
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                             <div class="flex gap-4">
+                                  <div class="flex items-center gap-1" title="Bun"><i class="fas fa-bread-slice text-accent/70"></i> ${burger.ratings.bun}</div>
+                                  <div class="flex items-center gap-1" title="Meat"><i class="fas fa-drumstick-bite text-accent/70"></i> ${burger.ratings.meat}</div>
+                                  <div class="flex items-center gap-1" title="Sauce"><i class="fas fa-tint text-accent/70"></i> ${burger.ratings.sauce}</div>
+                             </div>
+                        </div>
+                        <div class="text-right">
+                             <span class="text-gray-600 uppercase tracking-wider text-[0.6rem]">Last Tasted: ${burger.lastTasted}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        function openModal(burger) {
+            document.getElementById('modal-title').innerText = burger.name;
+            document.getElementById('modal-meta').innerText = `${burger.burgerName} | ${burger.price}`;
+            document.getElementById('modal-review').innerText = burger.review;
+            document.getElementById('modal-image').style.backgroundImage = `url('${burger.image}')`;
+
+            // Badge and Overall Score
+            const overall = ((burger.ratings.bun + burger.ratings.meat + burger.ratings.sauce) / 3).toFixed(1);
+
+            const badgeContainer = document.getElementById('modal-badge-container');
+            let badgesHTML = `<div class="bg-surface border border-white/20 text-white px-4 py-2 rounded font-bold uppercase tracking-widest text-sm flex items-center gap-2"><i class="fas fa-star text-accent"></i> Score: <span class="text-accent text-lg">${overall}</span></div>`;
+
+            if (burger.approved) {
+                badgesHTML += '<span class="bg-accent text-black px-4 py-2 rounded font-bold uppercase tracking-widest text-sm shadow-[0_0_15px_rgba(251,191,36,0.5)] inline-flex items-center"><i class="fas fa-award mr-2"></i>Sven Certified</span>';
+            }
+            badgeContainer.innerHTML = `<div class="flex items-center gap-3">${badgesHTML}</div>`;
+
+            // Ratings
+            const r = burger.ratings;
+            const rHTML = (label, val) => `
+                <div class="flex flex-col gap-1">
+                    <div class="flex justify-between font-bold text-white">
+                        <span>${label}</span>
+                        <span class="text-accent">${val}</span>
+                    </div>
+                    <div class="w-full bg-gray-700 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-accent h-full" style="width: ${val * 10}%"></div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('modal-ratings').innerHTML =
+                rHTML('Bun Structure', r.bun) +
+                rHTML('Meat Quality', r.meat) +
+                rHTML('Sauce / Flavor', r.sauce);
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    </script>
+</body>
+
+</html>
