@@ -209,6 +209,16 @@
         const grid = document.getElementById('burger-grid');
         const modal = document.getElementById('review-modal');
 
+        // Initialize
+        // loadBurgers(); // Removed duplicate call
+
+        // Helpers
+        const formatDate = (dateStr) => {
+            if (!dateStr) return '';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+        };
+
         // Fetch and Render
         async function loadBurgers() {
             try {
@@ -219,9 +229,14 @@
                 const burgers = await response.json();
 
                 // Sort and Render
-                burgers.sort((a, b) => a.rank - b.rank).forEach(burger => {
-                    renderBurgerCard(burger);
-                });
+                grid.innerHTML = ''; // Prevent duplicates
+
+                burgers
+                    .filter(b => b.status !== "Planned") // Filter out Planned
+                    .sort((a, b) => a.rank - b.rank)
+                    .forEach(burger => {
+                        renderBurgerCard(burger);
+                    });
             } catch (error) {
                 console.error('Error loading burgers:', error);
                 grid.innerHTML = '<p class="text-red-500">Failed to load burger data. Please check connection.</p>';
@@ -265,13 +280,16 @@
                     <div class="flex justify-between items-start mb-2">
                         <div>
                             <h3 class="font-heading text-2xl font-bold text-white group-hover:text-accent transition-colors">${burger.name}</h3>
-                            <p class="text-gray-400 text-sm">${burger.burgerName}</p>
+                            <p class="text-gray-400 text-sm mb-3">${burger.burgerName}</p>
                         </div>
                         <div class="text-right">
                              <span class="block text-accent font-bold font-heading">${burger.price}</span>
-                             <span class="text-xs text-gray-500">${burger.lastTasted}</span>
+                             <span class="text-xs text-gray-500 uppercase tracking-wider">${formatDate(burger.lastTasted)}</span>
                         </div>
                     </div>
+
+                    <!-- SEO Verdict -->
+                    ${burger.seoVerdict ? `<p class="text-gray-300 text-sm italic border-l-2 border-accent/50 pl-3 mb-4 leading-relaxed">"${burger.seoVerdict}"</p>` : ''}
 
                      <!-- Mini Ratings Preview -->
                     <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-white/5">
@@ -296,19 +314,41 @@
         function openModal(burger) {
             document.getElementById('modal-title').innerText = burger.name;
             document.getElementById('modal-meta').innerText = `${burger.burgerName} | ${burger.price}`;
-            document.getElementById('modal-review').innerText = burger.review;
+
+            // Use SEO Review if available, else fallback to manual review
+            document.getElementById('modal-review').innerText = burger.seoReview || burger.review;
+
             document.getElementById('modal-image').style.backgroundImage = `url('${burger.image}')`;
 
             // Badge and Overall Score
             const overall = ((burger.ratings.bun + burger.ratings.meat + burger.ratings.sauce) / 3).toFixed(1);
 
             const badgeContainer = document.getElementById('modal-badge-container');
-            let badgesHTML = `<div class="bg-surface border border-white/20 text-white px-4 py-2 rounded font-bold uppercase tracking-widest text-sm flex items-center gap-2"><i class="fas fa-star text-accent"></i> Score: <span class="text-accent text-lg">${overall}</span></div>`;
+
+            // Shared styling for all badges to ensure identical height/size
+            const badgeClass = "h-10 px-4 rounded font-bold uppercase tracking-widest text-sm flex items-center gap-2 shadow-lg whitespace-nowrap";
+
+            let badgesHTML = `
+                <div class="bg-surface border border-white/20 text-white ${badgeClass}">
+                    <i class="fas fa-star text-accent"></i> Score: <span class="text-accent font-bold">${overall}</span>
+                </div>`;
 
             if (burger.approved) {
-                badgesHTML += '<span class="bg-accent text-black px-4 py-2 rounded font-bold uppercase tracking-widest text-sm shadow-[0_0_15px_rgba(251,191,36,0.5)] inline-flex items-center"><i class="fas fa-award mr-2"></i>Sven Certified</span>';
+                badgesHTML += `
+                <div class="bg-accent text-black ${badgeClass} shadow-[0_0_15px_rgba(251,191,36,0.5)]">
+                    <i class="fas fa-award"></i> Sven Certified
+                </div>`;
             }
-            badgeContainer.innerHTML = `<div class="flex items-center gap-3">${badgesHTML}</div>`;
+
+            // Value For Money Badge
+            if (burger.valueForMoney) {
+                badgesHTML += `
+                <div class="bg-green-900/50 text-green-400 border border-green-500/30 ${badgeClass}">
+                    <i class="fas fa-money-bill-wave"></i> ${burger.valueForMoney}
+                </div>`;
+            }
+
+            badgeContainer.innerHTML = `<div class="flex flex-wrap items-center gap-3">${badgesHTML}</div>`;
 
             // Ratings
             const r = burger.ratings;
