@@ -20,7 +20,7 @@ if not NOTION_KEY or not DATABASE_ID:
 if len(DATABASE_ID) == 32:
     DATABASE_ID = f"{DATABASE_ID[:8]}-{DATABASE_ID[8:12]}-{DATABASE_ID[12:16]}-{DATABASE_ID[16:20]}-{DATABASE_ID[20:]}"
 
-print(f"DEBUG: Using Database ID: {DATABASE_ID}")
+
 
 def slugify(text):
     text = text.lower()
