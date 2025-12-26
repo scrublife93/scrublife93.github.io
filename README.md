@@ -131,3 +131,31 @@ You can easily change how often these scripts run by editing the `.github/workfl
     python3 -m http.server
     # Open http://localhost:8000 in your browser
     ```
+
+## 🎥 Hero Video Configuration
+
+ The Hero section supports a seamless background video (YouTube) with a high-quality image fallback. By default, the video is **DISABLED** to ensure the site looks perfect until a suitable video is finalized.
+
+ ### How to Enable the Video
+ 1.  Open `index.html`.
+ 2.  Search for **`ENABLE_HERO_VIDEO`** in the `<script>` section (near line 200).
+ 3.  Change `false` to **`true`**.
+     ```javascript
+     var ENABLE_HERO_VIDEO = true; // Set to TRUE to enable
+     ```
+
+ ### How to Change the Video
+ To use your own video, find the `initPlayer()` function in `index.html` and update the **`videoId`**:
+ ```javascript
+ player = new YT.Player('hero-player', {
+     videoId: 'YOUR_YOUTUBE_ID_HERE', // e.g., '5t_jbUukQwc'
+     // ...
+ });
+ ```
+
+ ### Configuration Options
+ | Variable | Description | Default |
+ | :--- | :--- | :--- |
+ | `ENABLE_HERO_VIDEO` | Master switch. If `false`, site uses static image only. | `false` |
+ | `TRANSITION_DELAY_MS` | Delay (ms) before fading out the poster image after video starts. Increase this if you see buffering artifacts. | `1000` |
+ | **Mobile Behavior** | The video is **programmatically disabled** on screens smaller than 768px to save bandwidth, regardless of the `ENABLE` flag. | N/A |

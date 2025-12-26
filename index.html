@@ -207,11 +207,13 @@
 			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 			var player;
+			var ENABLE_HERO_VIDEO = false; // Set to TRUE to enable background video
 			var TRANSITION_DELAY_MS = 1000; // How long to wait before fading out image (in ms)
 
 			function onYouTubeIframeAPIReady() {
 				// Initial Load: content might be hidden on mobile
-				if (window.innerWidth >= 768) {
+				// Only load if ENABLED and on DESKTOP
+				if (ENABLE_HERO_VIDEO && window.innerWidth >= 768) {
 					initPlayer();
 				}
 			}
