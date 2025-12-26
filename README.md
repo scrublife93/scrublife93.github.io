@@ -1,126 +1,107 @@
-# Sven Adrian - Portfolio & Blog
+# Sven Adrian - Content Hub & Portfolio
 
-This repository hosts the personal portfolio website for Sven Adrian, a Zurich-based videographer, and his content hub (currently featuring his "Quest for the Best Burger" blog).
+This repository hosts the personal portfolio website for Sven Adrian, a Zurich-based videographer, and his general Content Hub (currently featuring the "Burger Guide" and other articles).
 
-## 💡 Why this Architecture? (Static yet Dynamic)
-We built this site using a **"Push" Architecture** to overcome the limitations of **GitHub Pages**:
-- **GitHub Pages is Static:** It cannot run a backend server (like Node.js or Python) to fetch data from Notion on-the-fly.
-- **Speed:** Fetching data from Notion on every page load would be slow and rate-limited.
-
-**The Solution:**
-Instead of a live backend, we use **Python Scripts + GitHub Actions** as a "Build Time" backend.
-1. Script fetches data -> 2. Optimizes it -> 3. Bakes it into static JSON/HTML.
-The result is a website that loads instantly but still feels dynamic.
+## 💡 Architecture: "Push" vs "Pull"
+Accessing Notion directly on every page load is too slow/rate-limited for a high-performance site.
+Instead, we use a **Push Architecture**:
+1.  **Notion** is the Headless CMS.
+2.  **GitHub Actions** act as the "Server" that fetches data.
+3.  **Python Scripts** process, optimize, and "bake" the content into static JSON files.
+4.  **The Website** reads this static JSON, ensuring instant load times.
 
 ---
 
-## 🏗️ Project Structure
+## 🏗️ Project Components
 
 ### 1. Frontend
 - **Placeholders:**
-    - **Hero Video:** `index.html` (Lines 167-172) uses a stock video from Mixkit. Replace the `<source>` tag with your own hosted video URL.
-    - **Portfolio Grid:** `index.html` (Lines 318-391) contains a hardcoded `const projects = [...]` array to render the video grid.
+    - **Hero Video:** `index.html` (Line 167) uses a stock video. Replace the source with your own hosted file.
+    - **Portfolio Data:** `index.html` (Line 318) uses a hardcoded `const projects = [...]` array.
+- **Blog Interface:** Renders generic content types (currently specialized for Burgers + Guides).
 
-### 2. The Blog Module (Notion-Powered)
-While currently focused on Burgers, this architecture handles any structured content.
-- **Source:** Notion Database.
-- **Data File:** `assets/data/burgers.json` (Generated).
-- **Images:** `assets/images/burgers/` (Synced & Cached).
+### 2. The Automation Engine
+
+We have two distinct automated workflows that function as a pipeline.
+
+#### A. The Copywriter (SEO Enrichment)
+*   **Workflow:** `.github/workflows/sync_seo.yml`
+*   **Trigger:** **Hourly (at minute 13)** OR Manual Dispatch.
+*   **Script:** `scripts/enrich_burgers.py`
+*   **Role:**
+    1.  Scans Notion for pages with status `Improve SEO`.
+    2.  Sends the raw notes to **Google Gemini 1.5 Flash** (`gemini-3-flash-preview`).
+    3.  Writes a professional "SEO Review" and "SEO Verdict" back to Notion.
+    4.  Updates status to `SEO improved`.
+*   **Configuration:** The "Persona" (Prompt) is stored in the `.env` file (or GitHub Secrets) as `SEO_PROMPT`. **This ensures your custom writing instructions remain private and are not exposed in the public repo code.**
+
+#### B. The Publisher (Sync to Web)
+*   **Workflow:** `.github/workflows/automate_blog_data.yml`
+*   **Trigger:** **Daily (04:00 UTC)** OR Manual Dispatch.
+*   **Script:** `scripts/sync_burgers.py`
+*   **Role:**
+    1.  Scans Notion for pages with status `Ready to publish`.
+    2.  Downloads content & images to `assets/`.
+    3.  **Optimizes Bandwidth:** Uses **Signature-Based Caching** (checking Notion UUIDs) to avoid re-downloading unchanged images.
+    4.  Updates `burgers.json`.
+    5.  Commits changes and pushes to the repo.
+    6.  Updates Notion status to `Published`.
 
 ---
 
-## 🤖 The Automation Pipelines
+## ⚙️ Configuration
 
-We rely on two Python scripts to manage content.
-
-### A. The Copywriter (`scripts/enrich_burgers.py`)
-*   **Trigger:** Manual (You run it when you want to draft).
-*   **Role:** Reads your rough notes and generates professional, SEO-friendly copy.
-*   **AI Model:** **Google Gemini 1.5 Flash** (specifically `gemini-3-flash-preview` in code).
-*   **Persona:** Defined in the `.env` file under `SEO_PROMPT`. This allows you to adjust the "voice" (e.g., make it more critical, sarcastic, or formal) without touching the code.
-
-### B. The Publisher (`scripts/sync_burgers.py`)
-*   **Trigger:** **Daily at 04:00 UTC** (via GitHub Actions) or Manual Dispatch.
-*   **Role:** Syncs "Ready to publish" content to the live site.
-*   **Key Features:**
-    - **Multi-Image Sync:** Downloads all images attached to a burger (`_1.jpg`, `_2.jpg`...).
-    - **Signature Caching:** Checks the specific Notion file UUID. If the image hasn't changed, it **skips the download**. This saves bandwidth and keeps builds fast.
-    - **Garbage Collection:** Auto-deletes local images that were removed from Notion.
-
----
-
-## ⚙️ Configuration & Notion
-
-### Environment Variables (.env)
-We keep configuration separate from code for security and flexibility.
+### Environment Variables
+**Security Note:** We use `.env` (local) and GitHub Secrets (production) to store keys AND Prompts. This prevents sensitive data or proprietary prompting strategies from being leaked in Git history.
 
 ```bash
-# Credentials
-NOTION_KEY=secret_...           # Integration Token
-NOTION_DATABASE_ID=...          # ID of the Source Database
-GEMINI_API_KEY=...             # Google AI Studio Key
+# API Keys
+NOTION_KEY=...
+NOTION_DATABASE_ID=...
+GEMINI_API_KEY=...
 
 # Content Configuration
-SEO_PROMPT="You are an expert food critic... Use valid JSON..."
+SEO_PROMPT="You are an expert food critic..." # Kept private
 ```
-*Note: The prompt is here so you can tweak the AI's instructions easily.*
 
-### Required Notion Properties
-The scripts are strictly typed. Your Notion Database **MUST** have these exact properties (Case Sensitive):
+### Notion Database Schema
+The scripts rely on specific property names. If you change these in Notion, the scripts will break.
 
-| Property Name | Type | Key in Code | Description |
-| :--- | :--- | :--- | :--- |
-| `Name` | Title | `name` | Restaurant Title (e.g., "The Bite"). |
-| `Burger Name` | Text | `burgerName` | Specific item (e.g., "Classic Cheese"). |
-| `Price (CHF)` | Number | `price` | Cost as a number. |
-| `Location` | Multi-select | `place` | e.g., "Zurich". |
-| `Last Eaten` | Date | `lastTasted` | Visit date. |
-| `Image` | Files & Media | `images` | **Multiple images supported.** |
-| `Status` | Status | *(Logic Only)* | Filters: `Improve SEO`, `Ready to publish`. |
-| `Review` | Text | `review` | Your raw input notes. |
-| `SEO Review` | Text | `seoReview` | **AI Writes to this field.** |
-| `SEO Verdict` | Text | `seoVerdict` | **AI Writes to this field.** |
-| `Bun` | Number | `ratings.bun` | Rating (1-10). |
-| `Patty` | Number | `ratings.meat` | Rating (1-10). |
-| `Sauce` | Number | `ratings.sauce` | Rating (1-10). |
-| `Value Score` | Number | `valueScore` | Rating (1-10). |
-| `Overall Score` | Number | `overallScore` | Rating (1-10). |
-| `Value for Money` | Text | `valueForMoney` | e.g. "Steal" or "Pricey". |
-| `Certified (Repeated)` | Checkbox | `approved` | Boolean flag. |
-| `Short Verdict` | Text | `shortVerdict` | Manual summary (optional). |
-
-
----
-
-## 🚀 GitHub Workflows
-
-Defined in `.github/workflows/automate_blog_data.yml`.
-
-| Workflow | Frequency | Action |
+| Property Name | Type | Description |
 | :--- | :--- | :--- |
-| **Sync Burgers** | **Daily (04:00 UTC)** | 1. Runs `sync_burgers.py`.<br>2. Checks if `burgers.json` is healthy (not empty).<br>3. Commits changes to the repo.<br>4. Result: Website updates automatically. |
-| **Manual Trigger** | On Demand | You can go to `Actions` -> `Automate Blog Data` -> `Run workflow` to force an update immediately. |
+| `Name` | Title | Restaurant Name |
+| `Status` | Status | Flow: `Draft` -> `Improve SEO` -> `Ready to publish` -> `Published` |
+| `Image` | Files & Media | **Supports multiple images.** |
+| `Review` | Text | Your raw input. |
+| `SEO Review` | Text | **Output target for AI.** |
+| `SEO Verdict` | Text | **Output target for AI.** |
+| `Burger Name` | Text | |
+| `Price (CHF)` | Number | |
+| `Location` | Multi-select | |
+| `Last Eaten` | Date | |
+| `Bun` | Number | Rating |
+| `Patty` | Number | Rating |
+| `Sauce` | Number | Rating |
+| `Value Score` | Number | Rating |
+| `Overall Score` | Number | Rating |
+| `Value for Money` | Text | |
+| `Certified (Repeated)` | Checkbox | |
+| `Short Verdict` | Text | Manual summary |
 
 ---
 
 ## 🛠️ Local Development
 
-1.  **Clone & Setup:**
+1.  **Install:**
     ```bash
-    git clone https://github.com/scrublife93/scrublife93.github.io.git
-    cd scrublife93.github.io
-    python3 -m venv venv
-    source venv/bin/activate
+    git clone ...
     pip install -r requirements.txt
     ```
-
-2.  **Run Sync:**
+2.  **Test AI Copywriter:**
+    ```bash
+    python scripts/enrich_burgers.py
+    ```
+3.  **Test Sync/Publish:**
     ```bash
     python scripts/sync_burgers.py
     ```
-
-3.  **Start Server:**
-    ```bash
-    python3 -m http.server
-    ```
-    Visit `http://localhost:8000`.
