@@ -1,8 +1,6 @@
 .DS_Store
 .env
 node_modules/
-node_modules/
-# Scripts are now tracked for GitHub Actions
-venv/
 venv/
 README.md
+# Scripts are now tracked for GitHub Actions
