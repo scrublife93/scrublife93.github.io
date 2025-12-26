@@ -134,28 +134,16 @@ def generate_seo_content(burger_data):
     Short Verdict (Existing): "{burger_data.get('Short Verdict', '')}"
     """
     print(review_context)
+    
+    seo_prompt_template = os.getenv("SEO_PROMPT")
+    if not seo_prompt_template:
+        print("Error: SEO_PROMPT not found in .env")
+        return None
+
     try:
-        prompt = f"""
-        You are an expert food critic and SEO specialist.
-        I have a burger review that needs improved copy for a blog.
-        
-        Review Data:
-        {review_context}
-        
-        Task:
-        1. Rewrite the "Review" text to be engaging and SEO-friendly.
-           - STRICT CONSTRAINT: Do NOT include ANY numerical scores (e.g. "10/10", "5 stars") or prices.
-           - Tone: Authentic, critical but fair. Avoid "hype" words like "world-class" unless truly warranted by a perfect score.
-        2. Create a "Short Verdict": a punchy, one-sentence summary.
-           - STRICT CONSTRAINT: Must be UNDER 12 WORDS.
-           - NO numbers or prices in the verdict.
-        
-        Return ONLY valid JSON with no extra text or markdown formatting:
-        {{
-            "seo_review": "...",
-            "seo_verdict": "..."
-        }}
-        """
+        # Replace placeholder with actual context
+        # Handle literal newline characters if loaded from env as string literal
+        prompt = seo_prompt_template.replace("__REVIEW_CONTEXT__", review_context).replace("\\n", "\n")
         
         response = client.models.generate_content(
             model=MODEL_NAME,
