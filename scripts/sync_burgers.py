@@ -31,12 +31,14 @@ def download_image(url, folder, filename):
         os.makedirs(folder)
     
     path = os.path.join(folder, filename)
+    
     try:
         r = requests.get(url, stream=True)
         if r.status_code == 200:
             with open(path, 'wb') as f:
                 r.raw.decode_content = True
                 shutil.copyfileobj(r.raw, f)
+            print(f"Downloaded {filename}")
             return path
     except Exception as e:
         print(f"Error downloading {filename}: {e}")
@@ -120,6 +122,16 @@ def fetch_burgers():
         valid_images = set()
         img_output_dir = "assets/images/burgers" # Relative to project root if run from there
         
+        # Manifest for caching (Signature-based)
+        manifest_path = os.path.join(img_output_dir, "image_manifest.json")
+        manifest = {}
+        if os.path.exists(manifest_path):
+            try:
+                with open(manifest_path, 'r') as f:
+                    manifest = json.load(f)
+            except:
+                manifest = {}
+
         for i, page in enumerate(results):
             props = page["properties"]
             # if i == 0:
@@ -199,23 +211,47 @@ def fetch_burgers():
                 for idx, file_obj in enumerate(files):
                     img_url = file_obj["file"]["url"] if file_obj["type"] == "file" else file_obj["external"]["url"]
                     
+                    # Extract caching signature (UUID from Notion URL)
+                    # Url format example: .../workspace-id/UUID/filename...?
+                    signature = "unknown"
+                    try:
+                        clean_url = img_url.split("?")[0]
+                        parts = clean_url.split("/")
+                        if len(parts) >= 2:
+                            signature = parts[-2]
+                    except:
+                        pass
+
                     ext = "jpg"
                     if "." in img_url.split("?")[0]:
                         ext = img_url.split("?")[0].split(".")[-1]
                     if len(ext) > 4: ext = "jpg"
 
                     fname = f"{base_filename}_{idx+1}.{ext}"
-                    full_down_path = download_image(img_url, img_output_dir, fname)
+
+                    # Check Cache
+                    full_local_path = os.path.join(img_output_dir, fname)
+                    should_download = True
                     
-                    if full_down_path:
-                        # Append to list of images for this burger
+                    if os.path.exists(full_local_path) and manifest.get(fname) == signature:
+                        # print(f"Skipping {fname} (Cached)")
+                        should_download = False
+                        valid_images.add(fname)
                         rel_path = f"../assets/images/burgers/{fname}"
                         burger_images.append(rel_path)
-                        valid_images.add(fname)
+                    
+                    if should_download:
+                         full_down_path = download_image(img_url, img_output_dir, fname)
+                         if full_down_path:
+                            # Append to list of images for this burger
+                            rel_path = f"../assets/images/burgers/{fname}"
+                            burger_images.append(rel_path)
+                            valid_images.add(fname)
+                            manifest[fname] = signature
                         
-                        # Set primary image (first one)
-                        if idx == 0:
-                            local_image_path = rel_path
+                    # Set primary image (first one)
+                    if idx == 0 and burger_images:
+                        local_image_path = burger_images[0]
 
             # If no images found, use placeholder but don't add to valid_images (unless we want to track placeholder)
             if not burger_images:
@@ -273,6 +309,7 @@ def fetch_burgers():
             for filename in os.listdir(img_output_dir):
                 if filename == ".DS_Store": continue
                 if filename == "placeholder_burger.jpg": continue # Keep system placeholder
+                if filename == "image_manifest.json": continue # Keep cache manifest
                 
                 if filename not in valid_images:
                     try:
@@ -281,6 +318,14 @@ def fetch_burgers():
                         removed_count += 1
                     except Exception as e:
                         print(f"Error removing {filename}: {e}")
+        
+        # Cleanup Manifest (remove entries for deleted/invalid images)
+        clean_manifest = {k: v for k, v in manifest.items() if k in valid_images}
+        
+        # Save Manifest
+        with open(manifest_path, 'w') as f:
+            json.dump(clean_manifest, f, indent=4)
+
         print(f"Cleanup complete. Removed {removed_count} files.")
 
     except Exception as e:
