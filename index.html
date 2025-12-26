@@ -207,9 +207,17 @@
 			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 			var player;
+			var TRANSITION_DELAY_MS = 1000; // How long to wait before fading out image (in ms)
+
 			function onYouTubeIframeAPIReady() {
-				// Optimization: Do NOT load video on mobile (< 768px) to save bandwidth
-				if (window.innerWidth < 768) return;
+				// Initial Load: content might be hidden on mobile
+				if (window.innerWidth >= 768) {
+					initPlayer();
+				}
+			}
+
+			function initPlayer() {
+				if (player) return; // Prevent double init
 
 				player = new YT.Player('hero-player', {
 					videoId: '5t_jbUukQwc',
@@ -237,23 +245,29 @@
 			}
 
 			function onPlayerStateChange(event) {
-				// When playing (1), fade out the poster
+				// When playing (1), fade out the poster with a delay
 				if (event.data === YT.PlayerState.PLAYING) {
-					document.getElementById('hero-poster').classList.add('opacity-0');
+					setTimeout(() => {
+						document.getElementById('hero-poster').classList.add('opacity-0');
+					}, TRANSITION_DELAY_MS);
 				}
 			}
 
 			// Dynamic Resize Handling
 			window.addEventListener('resize', function () {
-				if (!player) return; // If player wasn't init (started on mobile), do nothing
-
 				if (window.innerWidth < 768) {
-					// Shrink to Mobile: Pause video, Show poster
-					player.pauseVideo();
-					document.getElementById('hero-poster').classList.remove('opacity-0');
+					// Shrink to Mobile
+					if (player) {
+						player.pauseVideo();
+						document.getElementById('hero-poster').classList.remove('opacity-0');
+					}
 				} else {
-					// Expand to Desktop: Play video
-					player.playVideo();
+					// Expand to Desktop
+					if (!player) {
+						initPlayer(); // Lazy Load!
+					} else {
+						player.playVideo();
+					}
 				}
 			});
 		</script>
