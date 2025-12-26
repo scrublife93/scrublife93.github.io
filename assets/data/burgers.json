@@ -157,5 +157,31 @@
         "seoReview": "Smash Club in Zurich offers a dependable delivery-only experience for fans of the classic smash burger. The Double Cheeseburger features well-seasoned patties and a bun that maintains its integrity during transport. While the flavor profile is consistent and the sauce adds a pleasant touch, it lacks the unique character of a standout destination meal. It remains a solid, high-value choice for a night in when you want a quality burger delivered without any unnecessary frills.",
         "seoVerdict": "A dependable Zurich delivery choice for a classic, well-executed smash burger.",
         "overallScore": 7
+    },
+    {
+        "id": "2d4b0d18-1658-8072-a717-f5cc7ca2f7c9",
+        "rank": 7,
+        "name": "Union Burger",
+        "burgerName": "Dirty Harry",
+        "price": "",
+        "place": "",
+        "lastTasted": "",
+        "image": "../assets/images/burgers/union_burger_1.jpg",
+        "images": [
+            "../assets/images/burgers/union_burger_1.jpg"
+        ],
+        "ratings": {
+            "bun": 2,
+            "meat": 0,
+            "sauce": 0
+        },
+        "review": "",
+        "approved": false,
+        "valueScore": 0,
+        "valueForMoney": "\u274c Total Rip-off",
+        "shortVerdict": "",
+        "seoReview": "",
+        "seoVerdict": "",
+        "overallScore": 0.5
     }
 ]
