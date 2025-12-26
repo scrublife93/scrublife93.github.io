@@ -159,3 +159,17 @@ You can easily change how often these scripts run by editing the `.github/workfl
  | `ENABLE_HERO_VIDEO` | Master switch. If `false`, site uses static image only. | `false` |
  | `TRANSITION_DELAY_MS` | Delay (ms) before fading out the poster image after video starts. Increase this if you see buffering artifacts. | `1000` |
  | **Mobile Behavior** | The video is **programmatically disabled** on screens smaller than 768px to save bandwidth, regardless of the `ENABLE` flag. | N/A |
+
+## Image Optimization
+The sync script automatically optimizes images download from Notion:
+- Converts to **WebP** format.
+- Resizes to a maximum dimension (default 1600px).
+- Respects EXIF orientation.
+
+### Adjusting Quality & Size
+To change the image settings, edit the constants at the top of `scripts/sync_burgers.py`:
+```python
+# Image Configuration
+IMAGE_QUALITY = 90       # WebP Quality (0-100)
+IMAGE_MAX_SIZE = 1600    # Max width/height in pixels
+```
