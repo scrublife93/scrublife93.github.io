@@ -1,4 +1,4 @@
-ename: Burger SEO Enrichment
+name: Burger SEO Enrichment
 on:
   schedule:
     - cron: '0 12 * * *' # Runs daily at noon
