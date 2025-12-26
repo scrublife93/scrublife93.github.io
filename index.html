@@ -242,6 +242,20 @@
 					document.getElementById('hero-poster').classList.add('opacity-0');
 				}
 			}
+
+			// Dynamic Resize Handling
+			window.addEventListener('resize', function () {
+				if (!player) return; // If player wasn't init (started on mobile), do nothing
+
+				if (window.innerWidth < 768) {
+					// Shrink to Mobile: Pause video, Show poster
+					player.pauseVideo();
+					document.getElementById('hero-poster').classList.remove('opacity-0');
+				} else {
+					// Expand to Desktop: Play video
+					player.playVideo();
+				}
+			});
 		</script>
 	</header>
 
