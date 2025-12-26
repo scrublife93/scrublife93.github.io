@@ -136,5 +136,28 @@
         "seoReview": "Smash Club in Zurich offers a dependable delivery-only experience for fans of the classic smash burger. The Double Cheeseburger features well-seasoned patties and a bun that maintains its integrity during transport. While the flavor profile is consistent and the sauce adds a pleasant touch, it lacks the unique character of a standout destination meal. It remains a solid, high-value choice for a night in when you want a quality burger delivered without any unnecessary frills.",
         "seoVerdict": "A dependable Zurich delivery choice for a classic, well-executed smash burger.",
         "overallScore": 7
+    },
+    {
+        "id": "2d5b0d18-1658-80ea-95a5-d2e58ef61e4b",
+        "rank": 7,
+        "name": "Test Resti",
+        "burgerName": "Test Burger",
+        "price": "10.00 CHF",
+        "place": "Zurich",
+        "lastTasted": "2025-12-26",
+        "image": "../assets/images/placeholder_burger.jpg",
+        "ratings": {
+            "bun": 9,
+            "meat": 6,
+            "sauce": 6
+        },
+        "review": "This is a test",
+        "approved": true,
+        "valueScore": 13.6,
+        "valueForMoney": "\ud83c\udfc6 Legendary Steal",
+        "shortVerdict": "This is a test",
+        "seoReview": "In the heart of Zurich, Test Resti offers a burger experience that is defined by its contrasts. The immediate standout is the bun; it is a pillowy, artisanal triumph that provides a sophisticated foundation rarely seen at this level. However, while the bread sets a high bar, the meat and sauce struggle to maintain that momentum. The patty lacks the deep, charred complexity required to truly shine, and the sauce feels somewhat conventional. Despite these middle-of-the-road components, the sheer value proposition makes it a notable contender in an expensive city. For those prioritizing a budget-friendly meal without sacrificing quality bread, it serves as a reliable local staple.",
+        "seoVerdict": "A phenomenal bun carries an average patty in Zurich\u2019s best budget bite.",
+        "overallScore": 6.8
     }
 ]
