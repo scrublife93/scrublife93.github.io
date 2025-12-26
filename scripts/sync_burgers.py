@@ -210,15 +210,15 @@ def fetch_burgers():
             price_str = f"{price_val:.2f} CHF" if price_val else ""
 
             status = get_status("Status")
-
-            # Check for auto-publish
-            if status == "Ready to publish":
+            
+            # Check for auto-publish (Handle casing differences)
+            if str(status).lower() == "ready to publish":
                 update_status_to_published(page["id"], name)
-                status = "Published" # Update local status for JSON output
+                # No need to update 'status' variable since we don't save it to JSON anymore
 
             burger = {
                 "id": page["id"],
-                "status": status,
+                # "status": status, # Removed as per user request
                 "rank": rank_counter,
                 "name": name,
                 "burgerName": burger_name,
