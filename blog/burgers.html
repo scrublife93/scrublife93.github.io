@@ -178,7 +178,7 @@
                     </div>
 
                     <!-- Right: The Anchor (Massive Score) -->
-                    <div class="text-right pr-2">
+                    <div class="text-right pr-4 md:pr-2">
                         <div class="font-heading font-extrabold text-5xl md:text-6xl text-accent drop-shadow-lg"
                             id="modal-score"></div>
                         <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">Total Score</div>
@@ -343,7 +343,10 @@
         }
 
         function openModal(burger) {
-            modal.scrollTop = 0;
+            // Reset scroll on the actual scrollable container, not the modal wrapper
+            // Note: scrollTop reset moved to end of function to ensure element is visible
+
+
             const overall = typeof burger.overallScore === 'number' ? burger.overallScore.toFixed(1) : ((burger.ratings.bun + burger.ratings.meat + burger.ratings.sauce) / 3).toFixed(1);
 
             // 1. Header (Image + Overlays)
@@ -397,7 +400,7 @@
             const r = burger.ratings;
             const rHTML = (label, val) => `
                 <div class="flex flex-col gap-1">
-                     <div class="flex justify-between items-center mb-1">
+                     <div class="flex justify-between items-baseline mb-1">
                         <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">${label}</span>
                         <!-- Larger, easier to read numbers -->
                         <span class="text-lg font-extrabold text-white">${val}<span class="text-gray-600 text-[10px] font-normal ml-0.5">/10</span></span>
@@ -470,10 +473,15 @@
             const mapsQuery = encodeURIComponent(`${burger.name} ${burger.place || 'Zurich'}`);
             document.getElementById('btn-maps').href = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
 
-
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             document.body.style.overflow = 'hidden';
+
+            // Scroll Reset Fix: Must be done AFTER display:flex is applied so scrollTop works
+            const scrollContainer = modal.querySelector('.overflow-y-auto');
+            if (scrollContainer) {
+                setTimeout(() => { scrollContainer.scrollTop = 0; }, 10); // Tiny delay to ensure layout paint
+            }
         }
 
         function closeModal() {
