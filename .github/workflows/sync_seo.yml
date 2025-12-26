@@ -1,4 +1,4 @@
-name: Burger SEO Enrichment
+ename: Burger SEO Enrichment
 on:
   schedule:
     - cron: '0 12 * * *' # Runs daily at noon
@@ -25,4 +25,4 @@ jobs:
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           SEO_PROMPT: ${{ secrets.SEO_PROMPT }}
-        run: python your_script_name.py # Replace with your actual filename
+        run: python enrich_burgers.py
