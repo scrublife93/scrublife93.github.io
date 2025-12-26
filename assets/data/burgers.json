@@ -8,6 +8,9 @@
         "place": "Zurich",
         "lastTasted": "2025-11-27",
         "image": "../assets/images/burgers/burgermeister_1.jpg",
+        "images": [
+            "../assets/images/burgers/burgermeister_1.jpg"
+        ],
         "ratings": {
             "bun": 9,
             "meat": 10,
@@ -31,6 +34,9 @@
         "place": "Zurich",
         "lastTasted": "2024-03-22",
         "image": "../assets/images/burgers/the_bite_1.jpeg",
+        "images": [
+            "../assets/images/burgers/the_bite_1.jpeg"
+        ],
         "ratings": {
             "bun": 8,
             "meat": 8,
@@ -54,6 +60,9 @@
         "place": "Zurich",
         "lastTasted": "2024-10-17",
         "image": "../assets/images/burgers/black_tap_1.webp",
+        "images": [
+            "../assets/images/burgers/black_tap_1.webp"
+        ],
         "ratings": {
             "bun": 8,
             "meat": 8,
@@ -77,6 +86,10 @@
         "place": "Zurich",
         "lastTasted": "2025-12-25",
         "image": "../assets/images/burgers/the_smash_burger_bear_1.jpeg",
+        "images": [
+            "../assets/images/burgers/the_smash_burger_bear_1.jpeg",
+            "../assets/images/burgers/the_smash_burger_bear_2.jpeg"
+        ],
         "ratings": {
             "bun": 9,
             "meat": 7,
@@ -100,6 +113,11 @@
         "place": "Zurich",
         "lastTasted": "2025-12-26",
         "image": "../assets/images/burgers/bourger_boutique_1.jpeg",
+        "images": [
+            "../assets/images/burgers/bourger_boutique_1.jpeg",
+            "../assets/images/burgers/bourger_boutique_2.jpeg",
+            "../assets/images/burgers/bourger_boutique_3.jpeg"
+        ],
         "ratings": {
             "bun": 9,
             "meat": 6,
@@ -123,6 +141,9 @@
         "place": "Zurich",
         "lastTasted": "2024-12-18",
         "image": "../assets/images/burgers/smash_club_1.webp",
+        "images": [
+            "../assets/images/burgers/smash_club_1.webp"
+        ],
         "ratings": {
             "bun": 7,
             "meat": 7,

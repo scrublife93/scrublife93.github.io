@@ -117,6 +117,7 @@ def fetch_burgers():
 
         burgers = []
         rank_counter = 1
+        valid_images = set()
         img_output_dir = "assets/images/burgers" # Relative to project root if run from there
         
         for i, page in enumerate(results):
@@ -188,23 +189,38 @@ def fetch_burgers():
             burger_name = get_text("Burger Name")
             base_filename = slugify(name)
             
-            local_image_path = "../assets/images/placeholder_burger.jpg"
+            # Image Downloading (Multi-support)
+            burger_images = []
+            local_image_path = "../assets/images/placeholder_burger.jpg" # Default for first image
             
             img_prop = props.get("Image")
-            if img_prop and img_prop.get("files") and len(img_prop["files"]) > 0:
-                file_obj = img_prop["files"][0]
-                img_url = file_obj["file"]["url"] if file_obj["type"] == "file" else file_obj["external"]["url"]
-                
-                ext = "jpg"
-                if "." in img_url.split("?")[0]:
-                    ext = img_url.split("?")[0].split(".")[-1]
-                if len(ext) > 4: ext = "jpg"
+            if img_prop and img_prop.get("files"):
+                files = img_prop["files"]
+                for idx, file_obj in enumerate(files):
+                    img_url = file_obj["file"]["url"] if file_obj["type"] == "file" else file_obj["external"]["url"]
+                    
+                    ext = "jpg"
+                    if "." in img_url.split("?")[0]:
+                        ext = img_url.split("?")[0].split(".")[-1]
+                    if len(ext) > 4: ext = "jpg"
 
-                fname = f"{base_filename}_1.{ext}"
-                full_down_path = download_image(img_url, img_output_dir, fname)
-                
-                if full_down_path:
-                    local_image_path = f"../assets/images/burgers/{fname}"
+                    fname = f"{base_filename}_{idx+1}.{ext}"
+                    full_down_path = download_image(img_url, img_output_dir, fname)
+                    
+                    if full_down_path:
+                        # Append to list of images for this burger
+                        rel_path = f"../assets/images/burgers/{fname}"
+                        burger_images.append(rel_path)
+                        valid_images.add(fname)
+                        
+                        # Set primary image (first one)
+                        if idx == 0:
+                            local_image_path = rel_path
+
+            # If no images found, use placeholder but don't add to valid_images (unless we want to track placeholder)
+            if not burger_images:
+                burger_images.append(local_image_path)
+
 
             price_val = get_number("Price (CHF)")
             price_str = f"{price_val:.2f} CHF" if price_val else ""
@@ -226,6 +242,7 @@ def fetch_burgers():
                 "place": get_multi_select("Location"),
                 "lastTasted": get_date("Last Eaten"),
                 "image": local_image_path,
+                "images": burger_images,
                 "ratings": {
                     "bun": get_number("Bun"),
                     "meat": get_number("Patty"),
@@ -248,6 +265,23 @@ def fetch_burgers():
             json.dump(burgers, f, indent=4)
             
         print(f"Successfully synced {len(burgers)} burgers to {output_path}")
+
+        # Cleanup: Remove unused images
+        print("Starting image garbage collection...")
+        removed_count = 0
+        if os.path.exists(img_output_dir):
+            for filename in os.listdir(img_output_dir):
+                if filename == ".DS_Store": continue
+                if filename == "placeholder_burger.jpg": continue # Keep system placeholder
+                
+                if filename not in valid_images:
+                    try:
+                        os.remove(os.path.join(img_output_dir, filename))
+                        print(f"Removed unused image: {filename}")
+                        removed_count += 1
+                    except Exception as e:
+                        print(f"Error removing {filename}: {e}")
+        print(f"Cleanup complete. Removed {removed_count} files.")
 
     except Exception as e:
         print(f"Error fetching from Notion: {e}")
