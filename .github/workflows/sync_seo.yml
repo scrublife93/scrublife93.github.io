@@ -1,0 +1,28 @@
+name: Burger SEO Enrichment
+on:
+  schedule:
+    - cron: '0 12 * * *' # Runs daily at noon
+  workflow_dispatch:      # Allows you to click "Run" manually in GitHub
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install google-genai requests python-dotenv
+
+      - name: Run Script
+        env:
+          NOTION_KEY: ${{ secrets.NOTION_KEY }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SEO_PROMPT: ${{ secrets.SEO_PROMPT }}
+        run: python your_script_name.py # Replace with your actual filename
