@@ -257,6 +257,9 @@
 
 			// Dynamic Resize Handling
 			window.addEventListener('resize', function () {
+				// Optimization: Respect the master switch!
+				if (!ENABLE_HERO_VIDEO) return;
+
 				if (window.innerWidth < 768) {
 					// Shrink to Mobile
 					if (player) {
