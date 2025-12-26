@@ -25,4 +25,4 @@ jobs:
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           SEO_PROMPT: ${{ secrets.SEO_PROMPT }}
-        run: python enrich_burgers.py
+        run: python scripts/enrich_burgers.py
