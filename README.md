@@ -48,8 +48,8 @@ We have two distinct automated workflows that function as a pipeline.
         *   **Why?** Notion URLs expire and change, but the file content usually doesn't.
         *   **How?** We extract the unique UUID from the Notion URL and store it in `assets/images/burgers/image_manifest.json`.
         *   **Benefit:** The script checks this manifest before downloading. If the signature matches, it skips the download. This saves massive bandwidth and prevents GitHub Actions from hitting network limits.
-    4.  Updates `burgers.json`.
-    5.  Commits changes and pushes to the repo.
+    4.  Updates `burgers.json` locally.
+    5.  *(Note: The Script does NOT commit changes. The GitHub Action handles `git commit` and `git push` after the script finishes).*
     6.  Updates Notion status to `Published`.
 
 ---
