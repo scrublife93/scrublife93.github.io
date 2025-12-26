@@ -42,6 +42,34 @@ def download_image(url, folder, filename):
         print(f"Error downloading {filename}: {e}")
     return None
 
+def get_notion_headers():
+    return {
+        "Authorization": f"Bearer {NOTION_KEY}",
+        "Notion-Version": "2022-06-28",
+        "Content-Type": "application/json"
+    }
+
+def update_status_to_published(page_id, burger_name):
+    print(f"Publishing burger: {burger_name}...")
+    url = f"https://api.notion.com/v1/pages/{page_id}"
+    payload = {
+        "properties": {
+            "Status": {
+                "status": {
+                    "name": "Published"
+                }
+            }
+        }
+    }
+    try:
+        response = requests.patch(url, headers=get_notion_headers(), json=payload)
+        if response.status_code == 200:
+            print(f"Successfully published {burger_name}.")
+        else:
+            print(f"Failed to publish {burger_name}: {response.status_code} - {response.text}")
+    except Exception as e:
+        print(f"Exception publishing {burger_name}: {e}")
+
 def fetch_burgers():
     print("Fetching burgers from Notion (via requests)...")
     
@@ -52,6 +80,22 @@ def fetch_burgers():
         "Content-Type": "application/json"
     }
     payload = {
+        "filter": {
+            "or": [
+                {
+                    "property": "Status",
+                    "status": {
+                        "equals": "Ready to publish"
+                    }
+                },
+                {
+                    "property": "Status",
+                    "status": {
+                        "equals": "Published"
+                    }
+                }
+            ]
+        },
         "sorts": [
             {
                 "property": "Overall Score",
@@ -165,9 +209,16 @@ def fetch_burgers():
             price_val = get_number("Price (CHF)")
             price_str = f"{price_val:.2f} CHF" if price_val else ""
 
+            status = get_status("Status")
+
+            # Check for auto-publish
+            if status == "Ready to publish":
+                update_status_to_published(page["id"], name)
+                status = "Published" # Update local status for JSON output
+
             burger = {
                 "id": page["id"],
-                "status": get_status("Status"),
+                "status": status,
                 "rank": rank_counter,
                 "name": name,
                 "burgerName": burger_name,
