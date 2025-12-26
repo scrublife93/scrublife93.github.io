@@ -10,6 +10,8 @@ Instead, we use a **Push Architecture**:
 3.  **Python Scripts** process, optimize, and "bake" the content into static JSON files.
 4.  **The Website** reads this static JSON, ensuring instant load times.
 
+This setup bypasses GitHub Pages' lack of dynamic backend support while avoiding the cost/complexity of hosting a full server (like VPS or Heroku). It's "Serverless" in the truest sense.
+
 ---
 
 ## 🏗️ Project Components
@@ -30,7 +32,7 @@ We have two distinct automated workflows that function as a pipeline.
 *   **Script:** `scripts/enrich_burgers.py`
 *   **Role:**
     1.  Scans Notion for pages with status `Improve SEO`.
-    2.  Sends the raw notes to **Google Gemini 1.5 Flash** (`gemini-3-flash-preview`).
+    2.  Sends the raw notes to **Google Gemini 3 Flash** (`gemini-3-flash-preview`).
     3.  Writes a professional "SEO Review" and "SEO Verdict" back to Notion.
     4.  Updates status to `SEO improved`.
 *   **Configuration:** The "Persona" (Prompt) is stored in the `.env` file (or GitHub Secrets) as `SEO_PROMPT`. **This ensures your custom writing instructions remain private and are not exposed in the public repo code.**
@@ -42,7 +44,10 @@ We have two distinct automated workflows that function as a pipeline.
 *   **Role:**
     1.  Scans Notion for pages with status `Ready to publish`.
     2.  Downloads content & images to `assets/`.
-    3.  **Optimizes Bandwidth:** Uses **Signature-Based Caching** (checking Notion UUIDs) to avoid re-downloading unchanged images.
+    3.  **Optimizes Bandwidth:** Uses **Signature-Based Caching**.
+        *   **Why?** Notion URLs expire and change, but the file content usually doesn't.
+        *   **How?** We extract the unique UUID from the Notion URL and store it in `assets/images/burgers/image_manifest.json`.
+        *   **Benefit:** The script checks this manifest before downloading. If the signature matches, it skips the download. This saves massive bandwidth and prevents GitHub Actions from hitting network limits.
     4.  Updates `burgers.json`.
     5.  Commits changes and pushes to the repo.
     6.  Updates Notion status to `Published`.
@@ -90,6 +95,22 @@ The scripts rely on specific property names. If you change these in Notion, the 
 
 ---
 
+## ⏱️ Configuring Automation Frequency
+
+You can easily change how often these scripts run by editing the `.github/workflows/` YAML files.
+
+**Example: Change Daily Sync to Weekly**
+1.  Open `.github/workflows/automate_blog_data.yml`.
+2.  Find the `cron` line:
+    ```yaml
+    schedule:
+      - cron: '0 4 * * *' # Currently: 4:00 AM Daily
+    ```
+3.  Change it to `0 4 * * 1` (4:00 AM every Monday).
+*Tip: Use [crontab.guru](https://crontab.guru) to generate valid cron strings.*
+
+---
+
 ## 🛠️ Local Development
 
 1.  **Install:**
@@ -104,4 +125,9 @@ The scripts rely on specific property names. If you change these in Notion, the 
 3.  **Test Sync/Publish:**
     ```bash
     python scripts/sync_burgers.py
+    ```
+4.  **Run Server:**
+    ```bash
+    python3 -m http.server
+    # Open http://localhost:8000 in your browser
     ```
