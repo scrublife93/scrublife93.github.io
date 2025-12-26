@@ -105,36 +105,8 @@
         "overallScore": 7.5
     },
     {
-        "id": "2d5b0d18-1658-81af-9696-fff888893eb4",
-        "rank": 5,
-        "name": "Bourger Boutique",
-        "burgerName": "Der Speckige",
-        "price": "17.00 CHF",
-        "place": "Zurich",
-        "lastTasted": "2025-12-26",
-        "image": "../assets/images/burgers/bourger_boutique_1.jpeg",
-        "images": [
-            "../assets/images/burgers/bourger_boutique_1.jpeg",
-            "../assets/images/burgers/bourger_boutique_2.jpeg",
-            "../assets/images/burgers/bourger_boutique_3.jpeg"
-        ],
-        "ratings": {
-            "bun": 9,
-            "meat": 6,
-            "sauce": 8
-        },
-        "review": "Solid burger, the bun is fluffy and flavorful, the patty is not smashed but regular, very juicy but lacks the special something factor and seasoning. The sauce is good not overpowering the burger taste. While the sauce is very good it lacks distinction. What was very welcome distinction was their use of a regular cucumber instead of pickles. Makes the burger feels fresh and different.",
-        "approved": false,
-        "valueScore": 8.6,
-        "valueForMoney": "\u2705 Great Value",
-        "shortVerdict": "Solid fresh burger. Average",
-        "seoReview": "Bourger Boutique in Zurich offers a reliable experience with their Der Speckige burger. The standout feature is undoubtedly the bun\u2014exceptionally fluffy and packed with flavor, providing a premium foundation for the meal. While the patty arrives juicy, it follows a traditional thick style rather than a smash, and it lacks the aggressive seasoning needed to truly stand out in a competitive market. A refreshing twist comes from the substitution of standard pickles for fresh cucumber slices, lending a clean, crisp finish to every bite. The sauce complements the meat without overwhelming it, though it stops short of having a signature distinction. It is a well-constructed, fresh burger that hits the mark for quality without pushing the boundaries of innovation.",
-        "seoVerdict": "Fresh ingredients and fluffy buns define this solid, reliable Zurich burger.",
-        "overallScore": 7.3
-    },
-    {
         "id": "2d4b0d18-1658-801c-b5e6-faf9c8ec6897",
-        "rank": 6,
+        "rank": 5,
         "name": "Smash Club",
         "burgerName": "Double Cheeseburger",
         "price": "18.00 CHF",
@@ -157,31 +129,5 @@
         "seoReview": "Smash Club in Zurich offers a dependable delivery-only experience for fans of the classic smash burger. The Double Cheeseburger features well-seasoned patties and a bun that maintains its integrity during transport. While the flavor profile is consistent and the sauce adds a pleasant touch, it lacks the unique character of a standout destination meal. It remains a solid, high-value choice for a night in when you want a quality burger delivered without any unnecessary frills.",
         "seoVerdict": "A dependable Zurich delivery choice for a classic, well-executed smash burger.",
         "overallScore": 7
-    },
-    {
-        "id": "2d4b0d18-1658-8072-a717-f5cc7ca2f7c9",
-        "rank": 7,
-        "name": "Union Burger",
-        "burgerName": "Dirty Harry",
-        "price": "",
-        "place": "",
-        "lastTasted": "",
-        "image": "../assets/images/burgers/union_burger_1.jpg",
-        "images": [
-            "../assets/images/burgers/union_burger_1.jpg"
-        ],
-        "ratings": {
-            "bun": 2,
-            "meat": 0,
-            "sauce": 0
-        },
-        "review": "",
-        "approved": false,
-        "valueScore": 0,
-        "valueForMoney": "\u274c Total Rip-off",
-        "shortVerdict": "",
-        "seoReview": "",
-        "seoVerdict": "",
-        "overallScore": 0.5
     }
 ]
