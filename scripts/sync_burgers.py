@@ -4,6 +4,7 @@ import requests
 import shutil
 import re
 from dotenv import load_dotenv
+from PIL import Image, ImageOps
 
 # Load environment variables
 load_dotenv()
@@ -11,6 +12,10 @@ load_dotenv()
 # Get and clean env vars
 NOTION_KEY = os.getenv("NOTION_KEY", "").strip()
 DATABASE_ID = os.getenv("NOTION_DATABASE_ID", "").strip()
+
+# Image Configuration
+IMAGE_QUALITY = 90       # WebP Quality (0-100)
+IMAGE_MAX_SIZE = 1600    # Max width/height in pixels
 
 if not NOTION_KEY or not DATABASE_ID:
     print("Error: NOTION_KEY or NOTION_DATABASE_ID not set in .env")
@@ -26,23 +31,78 @@ def slugify(text):
     text = text.lower()
     return re.sub(r'[\W_]+', '_', text).strip('_')
 
-def download_image(url, folder, filename):
+def optimize_image(input_path, output_path):
+    """
+    Resizes image to max size and saves as WebP with configured quality.
+    """
+    try:
+        with Image.open(input_path) as img:
+            # Fix orientation based on EXIF
+            img = ImageOps.exif_transpose(img)
+
+            # Resize if too large
+            if img.width > IMAGE_MAX_SIZE or img.height > IMAGE_MAX_SIZE:
+                img.thumbnail((IMAGE_MAX_SIZE, IMAGE_MAX_SIZE), Image.Resampling.LANCZOS)
+            
+            # Save as WebP (Preserve ICC Profile for color accuracy)
+            icc_profile = img.info.get("icc_profile")
+            if icc_profile:
+                img.save(output_path, 'WEBP', quality=IMAGE_QUALITY, icc_profile=icc_profile)
+            else:
+                img.save(output_path, 'WEBP', quality=IMAGE_QUALITY)
+
+            return True
+    except Exception as e:
+        print(f"Error optimizing {input_path}: {e}")
+        return False
+
+def download_and_optimize_image(url, folder, filename_base, signature, manifest):
+    """
+    Downloads image, optimizes it to WebP, and handles caching.
+    Returns: (rel_path, final_filename) or (None, None)
+    """
     if not os.path.exists(folder):
         os.makedirs(folder)
     
-    path = os.path.join(folder, filename)
+    final_filename = f"{filename_base}.webp"
+    final_output_path = os.path.join(folder, final_filename)
+    
+    # Check Cache
+    if os.path.exists(final_output_path) and manifest.get(final_filename) == signature:
+         # print(f"Skipping {final_filename} (Cached)")
+         return f"../assets/images/burgers/{final_filename}", final_filename
+
+    # Download to temp file
+    temp_filename = f"{filename_base}_temp.tmp"
+    temp_path = os.path.join(folder, temp_filename)
     
     try:
         r = requests.get(url, stream=True)
         if r.status_code == 200:
-            with open(path, 'wb') as f:
+            with open(temp_path, 'wb') as f:
                 r.raw.decode_content = True
                 shutil.copyfileobj(r.raw, f)
-            print(f"Downloaded {filename}")
-            return path
+            
+            # Optimize and Convert to WebP
+            if optimize_image(temp_path, final_output_path):
+                print(f"Optimized & Saved {final_filename}")
+                
+                # Cleanup temp
+                os.remove(temp_path)
+                
+                return f"../assets/images/burgers/{final_filename}", final_filename
+            else:
+                 # Fallback: if optimization fails, try to just move the temp file? 
+                 # Actually, better to fail than have broken images.
+                 os.remove(temp_path)
+                 print(f"Failed to optimize {final_filename}")
+
     except Exception as e:
-        print(f"Error downloading {filename}: {e}")
-    return None
+        print(f"Error processing {final_filename}: {e}")
+        if os.path.exists(temp_path):
+            os.remove(temp_path)
+            
+    return None, None
 
 def get_notion_headers():
     return {
@@ -222,37 +282,20 @@ def fetch_burgers():
                     except:
                         pass
 
-                    ext = "jpg"
-                    if "." in img_url.split("?")[0]:
-                        ext = img_url.split("?")[0].split(".")[-1]
-                    if len(ext) > 4: ext = "jpg"
+                    # No extension needed here, optimize_image forces .webp
+                    fname_base = f"{base_filename}_{idx+1}"
 
-                    fname = f"{base_filename}_{idx+1}.{ext}"
-
-                    # Check Cache
-                    full_local_path = os.path.join(img_output_dir, fname)
-                    should_download = True
+                    rel_path, final_fname = download_and_optimize_image(img_url, img_output_dir, fname_base, signature, manifest)
                     
-                    if os.path.exists(full_local_path) and manifest.get(fname) == signature:
-                        # print(f"Skipping {fname} (Cached)")
-                        should_download = False
-                        valid_images.add(fname)
-                        rel_path = f"../assets/images/burgers/{fname}"
+                    if rel_path:
                         burger_images.append(rel_path)
-                    
-                    if should_download:
-                         full_down_path = download_image(img_url, img_output_dir, fname)
-                         if full_down_path:
-                            # Append to list of images for this burger
-                            rel_path = f"../assets/images/burgers/{fname}"
-                            burger_images.append(rel_path)
-                            valid_images.add(fname)
-                            manifest[fname] = signature
-                        
-                    # Set primary image (first one)
-                    if idx == 0 and burger_images:
-                        local_image_path = burger_images[0]
+                        valid_images.add(final_fname)
+                        manifest[final_fname] = signature
 
+
+            # Set primary image (first one)
+            if burger_images:
+                local_image_path = burger_images[0]
             # If no images found, use placeholder but don't add to valid_images (unless we want to track placeholder)
             if not burger_images:
                 burger_images.append(local_image_path)
