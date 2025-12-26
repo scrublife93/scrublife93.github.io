@@ -208,6 +208,9 @@
 
 			var player;
 			function onYouTubeIframeAPIReady() {
+				// Optimization: Do NOT load video on mobile (< 768px) to save bandwidth
+				if (window.innerWidth < 768) return;
+
 				player = new YT.Player('hero-player', {
 					videoId: '5t_jbUukQwc',
 					playerVars: {
