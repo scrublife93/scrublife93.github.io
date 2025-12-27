@@ -1,7 +1,7 @@
 name: Burger SEO Enrichment
 on:
   schedule:
-    - cron: '13 * * * *' # Runs daily at noon
+    # - cron: '13 * * * *' # Runs daily at noon
   workflow_dispatch:      # Allows you to click "Run" manually in GitHub
 
 jobs:
