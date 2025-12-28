@@ -26,8 +26,36 @@
         "overallScore": 9.5
     },
     {
-        "id": "2d3b0d18-1658-806d-9e25-d1b7f30d1d12",
+        "id": "2d6b0d18-1658-8102-8959-dce3f5ec803a",
         "rank": 2,
+        "name": "Huncho",
+        "burgerName": "Huncho Burger",
+        "price": "23.00 CHF",
+        "place": "Zurich",
+        "lastTasted": "2025-12-27",
+        "image": "../assets/images/burgers/huncho_1.webp",
+        "images": [
+            "../assets/images/burgers/huncho_1.webp",
+            "../assets/images/burgers/huncho_2.webp",
+            "../assets/images/burgers/huncho_3.webp"
+        ],
+        "ratings": {
+            "bun": 9,
+            "meat": 8,
+            "sauce": 8
+        },
+        "review": "The bun smells like a bun from burger king but tastes dramatically better. It is fluffy and delightful. The meat tastes great. The outside was a bit dry bit crunchy. The meat is well seasoned but lacks distinctive flavor. The sauce is good. A little bit too much of a cocktail hint but overall great. The overall burger is very good and enjoyable. Very good burger. Lacks a bit of distinction but is very good. Good Smash Burger",
+        "approved": false,
+        "valueScore": 6.5,
+        "valueForMoney": "\ud83d\udcb8 A Bit Pricey",
+        "shortVerdict": "Great Smash burger. Not distinctive but great.",
+        "seoReview": "Huncho in Zurich delivers a highly impressive experience with their signature Huncho Burger, a well-executed example of a modern smash burger. The standout feature is undoubtedly the bun, which offers a delightful, fluffy texture that far exceeds expectations. Though the aroma might remind some of classic fast-food chains, the quality is vastly superior and serves as a highlight of the meal. The meat is expertly seasoned and features a satisfyingly crunchy exterior, providing a robust base even though it lacks a highly distinctive signature flavor. Complemented by a well-balanced sauce that carries a pleasant hint of cocktail notes, the overall composition is both enjoyable and satisfying. Priced at 23 CHF, it stands as a premium option for burger enthusiasts in the city. While it leans towards traditional flavors rather than groundbreaking ones, the technical execution of the meat and bread makes this a highly recommended experience.",
+        "seoVerdict": "A top-tier Zurich smash burger featuring an exceptionally fluffy, delightful bun.",
+        "overallScore": 8.3
+    },
+    {
+        "id": "2d3b0d18-1658-806d-9e25-d1b7f30d1d12",
+        "rank": 3,
         "name": "The Bite",
         "burgerName": "The Classic",
         "price": "27.00 CHF",
@@ -53,7 +81,7 @@
     },
     {
         "id": "2d3b0d18-1658-8076-ab9a-e7992602de30",
-        "rank": 3,
+        "rank": 4,
         "name": "Black Tap",
         "burgerName": "All American",
         "price": "17.00 CHF",
@@ -79,7 +107,7 @@
     },
     {
         "id": "2d4b0d18-1658-81af-a705-dd252c149a08",
-        "rank": 4,
+        "rank": 5,
         "name": "The Smash Burger Bear",
         "burgerName": "Smash Cheese Burger",
         "price": "19.50 CHF",
@@ -106,7 +134,7 @@
     },
     {
         "id": "2d5b0d18-1658-81af-9696-fff888893eb4",
-        "rank": 5,
+        "rank": 6,
         "name": "Bourger Boutique",
         "burgerName": "Der Speckige",
         "price": "17.00 CHF",
@@ -134,7 +162,7 @@
     },
     {
         "id": "2d4b0d18-1658-801c-b5e6-faf9c8ec6897",
-        "rank": 6,
+        "rank": 7,
         "name": "Smash Club",
         "burgerName": "Double Cheeseburger",
         "price": "18.00 CHF",
