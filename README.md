@@ -173,3 +173,20 @@ To change the image settings, edit the constants at the top of `scripts/sync_bur
 IMAGE_QUALITY = 90       # WebP Quality (0-100)
 IMAGE_MAX_SIZE = 1600    # Max width/height in pixels
 ```
+
+## 🔍 SEO & Accessibility Logic
+Although the site uses a "Push" architecture to generate static JSON, the frontend renders this data dynamically. To ensure search engines and screen readers can understand the content, we implement specific SEO features at runtime:
+
+### Dynamic Alt Text Generation
+The `blog/burgers.html` script automatically generates descriptive **Alt Text** for images when it builds the DOM.
+- **Pattern:** `"${Burger Name} at ${Restaurant Name} - Zurich Burger Guide"`
+- **Example:** *"Cheeseburger at Burgermeister - Zurich Burger Guide"*
+
+This ensures that even though images are just URLs in a JSON file, Google sees them as semantic content associated with the specific restaurant and burger being reviewed.
+
+### Cache Busting
+To ensure users always see the latest "Published" data immediately after a sync, the frontend appends a timestamp to the data fetch request:
+```javascript
+fetch('../assets/data/burgers.json?v=' + new Date().getTime())
+```
+This forces the browser to bypass its local cache and download the fresh JSON file.

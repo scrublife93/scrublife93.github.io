@@ -150,7 +150,7 @@
             <!-- 1. Header (The Hook) -->
             <div class="h-80 md:h-96 w-full relative group">
                 <!-- Main Image -->
-                <div id="modal-image" class="w-full h-full bg-cover bg-center transition-all duration-500"></div>
+                <img id="modal-image" src="" alt="" class="w-full h-full object-cover transition-all duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent opacity-90"></div>
 
                 <!-- Overlay: Sven Certified Seal (Top Right) - Overlapping edge -->
@@ -270,7 +270,7 @@
         // Fetch and Render
         async function loadBurgers() {
             try {
-                const response = await fetch('../assets/data/burgers.json');
+                const response = await fetch('../assets/data/burgers.json?v=' + new Date().getTime());
                 if (!response.ok) throw new Error('Network response was not ok');
                 const burgers = await response.json();
                 grid.innerHTML = '';
@@ -298,7 +298,7 @@
             card.innerHTML = `
                 <!-- Image -->
                 <div class="h-64 bg-gray-800 relative overflow-hidden">
-                    <img src="${burger.image}" alt="${burger.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100">
+                    <img src="${burger.image}" alt="${burger.burgerName} at ${burger.name} - Zurich Burger Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100">
                     
                     <!-- Rank Badge -->
                     <div class="absolute top-4 left-4 bg-accent text-black w-10 h-10 flex items-center justify-center font-heading font-bold text-xl rounded shadow-lg z-10">
@@ -352,7 +352,8 @@
             // 1. Header (Image + Overlays)
             const hero = document.getElementById('modal-image');
             const images = (burger.images && burger.images.length > 0) ? burger.images : [burger.image];
-            hero.style.backgroundImage = `url('${images[0]}')`;
+            hero.src = images[0];
+            hero.alt = `${burger.burgerName} at ${burger.name}`;
 
             // Seal (Consistent with Grid)
             const sealContainer = document.getElementById('modal-seal-container');
@@ -438,14 +439,14 @@
                 // 2 Image Strategy: 2nd Image is Full Width Band
                 extraHTML = `
                     <div class="mt-8">
-                        <img src="${images[1]}" class="w-full h-auto max-h-[500px] object-cover rounded-xl border border-white/10 shadow-lg" alt="Detail View">
+                        <img src="${images[1]}" class="w-full h-auto max-h-[500px] object-cover rounded-xl border border-white/10 shadow-lg" alt="Detailed view of ${burger.burgerName}">
                     </div>
                  `;
             } else if (images.length > 2) {
                 // 3+ Image Strategy: Grid of extra images
                 extraHTML = `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">`;
-                images.slice(1).forEach(img => {
-                    extraHTML += `<img src="${img}" class="rounded-xl border border-white/10 w-full object-cover h-48 md:h-64 shadow-lg transition-all duration-500 hover:scale-[1.02]">`;
+                images.slice(1).forEach((img, idx) => {
+                    extraHTML += `<img src="${img}" class="rounded-xl border border-white/10 w-full object-cover h-48 md:h-64 shadow-lg transition-all duration-500 hover:scale-[1.02]" alt="${burger.burgerName} detail ${idx + 2}">`;
                 });
                 extraHTML += `</div>`;
             }
