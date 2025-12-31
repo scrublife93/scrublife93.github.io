@@ -212,5 +212,32 @@
         "seoReview": "Smash Club in Zurich offers a dependable delivery-only experience for fans of the classic smash burger. The Double Cheeseburger features well-seasoned patties and a bun that maintains its integrity during transport. While the flavor profile is consistent and the sauce adds a pleasant touch, it lacks the unique character of a standout destination meal. It remains a solid, high-value choice for a night in when you want a quality burger delivered without any unnecessary frills.",
         "seoVerdict": "A dependable Zurich delivery choice for a classic, well-executed smash burger.",
         "overallScore": 7
+    },
+    {
+        "id": "2d9b0d18-1658-8189-a4b7-f6cefe57942a",
+        "rank": 9,
+        "name": "Smash Burger Shahba Rose",
+        "burgerName": "Smash Double Cheeseburger",
+        "price": "16.90 CHF",
+        "place": "Zurich",
+        "lastTasted": "2025-12-30",
+        "image": "../assets/images/burgers/smash_burger_shahba_rose_1.webp",
+        "images": [
+            "../assets/images/burgers/smash_burger_shahba_rose_1.webp",
+            "../assets/images/burgers/smash_burger_shahba_rose_2.webp"
+        ],
+        "ratings": {
+            "bun": 4,
+            "meat": 8,
+            "sauce": 6
+        },
+        "review": "The Smashburger is okay. The meat is actually very good. Very well seasoned, crispy, tastes nice. The sauce is okay. It's not overpowering the burger, but it's also not a standout sauce. The bun is really disappointing. It is very dry, doesn't have any good tastes to it. It feels very bland. The bun is really disappointing.",
+        "approved": false,
+        "valueScore": 6.9,
+        "valueForMoney": "\ud83d\udcb8 A Bit Pricey",
+        "shortVerdict": "Bad Bun good Meat",
+        "seoReview": "If you find yourself in Zurich craving a Smash Double Cheeseburger, Smash Burger Shahba Rose offers a mixed experience. The highlight of this smash burger style meal is undoubtedly the meat. The patties are well-seasoned, featuring a nice crispiness that delivers on flavor and texture. However, while the beef excels, other components struggle to keep pace. The sauce is functional and provides a decent base without being overpowering, yet it fails to stand out as a signature element. The primary drawback is the bun, which unfortunately feels bland and notably dry, detracting from the overall enjoyment of the dish. Priced at 16.9 CHF, the value feels a bit steep when considering the inconsistency between the high-quality meat and the disappointing bread. It is a balanced meal that succeeds on the strength of its patties but leaves room for improvement in its presentation and components.",
+        "seoVerdict": "High-quality crispy beef overshadowed by a dry and bland burger bun.",
+        "overallScore": 6.5
     }
 ]
