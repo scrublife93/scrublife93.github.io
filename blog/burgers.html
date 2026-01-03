@@ -17,13 +17,13 @@
     <!-- Open Graph / Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://svenadrian.com/blog/burgers.html">
-    <meta property="og:title" content="Definitive Zurich Burger Guide (2025)">
+    <meta property="og:title" content="Best Burgers in Zurich (2026)">
     <meta property="og:description"
-        content="Discover the ultimate guide to Zurich's best burgers. From smash burgers to gourmet patties, tasted and ranked for 2025.">
+        content="Discover the ultimate guide to Zurich's best burgers. From smash burgers to gourmet patties, tasted and ranked for 2026.">
     <meta property="og:image"
         content="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80">
 
-    <title>Definitive Zurich Burger Guide (2025) - Sven Adrian</title>
+    <title>Best Burgers in Zurich (2026) - Sven Adrian</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -121,9 +121,9 @@
         <div class="container mx-auto">
             <span class="text-accent text-sm font-bold tracking-widest uppercase mb-4 block animate-fade-in-up">The
                 Definitive Ranking</span>
-            <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6">Zurich Burger Guide</h1>
+            <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6">Best Burgers in Zurich</h1>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto">Discover the ultimate guide to Zurich's best burgers.
-                From smash burgers to gourmet patties, we've tasted and ranked the city's top spots for 2025. Click any
+                From smash burgers to gourmet patties, we've tasted and ranked the city's top spots for 2026. Click any
                 card for our detailed verdict, scores, and value ratings.
             </p>
         </div>
@@ -278,10 +278,76 @@
                     .filter(b => b.status !== "Planned")
                     .sort((a, b) => a.rank - b.rank)
                     .forEach(burger => renderBurgerCard(burger));
+
+                generateSchema(burgers);
+                updateLastModified(burgers);
+
             } catch (error) {
                 console.error('Error loading burgers:', error);
                 grid.innerHTML = '<p class="text-red-500">Failed to load burger data.</p>';
             }
+        }
+
+        function updateLastModified(burgers) {
+            const dates = burgers
+                .map(b => b.lastTasted ? new Date(b.lastTasted) : new Date(0))
+                .sort((a, b) => b - a);
+
+            if (dates.length > 0) {
+                const bestDate = dates[0].toISOString().split('T')[0];
+
+                // Update or Create Meta Tag
+                let meta = document.querySelector('meta[name="last-modified"]');
+                if (!meta) {
+                    meta = document.createElement('meta');
+                    meta.name = "last-modified";
+                    document.head.appendChild(meta);
+                }
+                meta.content = bestDate;
+            }
+        }
+
+        function generateSchema(burgers) {
+            const schema = {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "itemListElement": burgers.map((burger, index) => ({
+                    "@type": "Review",
+                    "position": index + 1,
+                    "name": burger.name, // Restaurant Name
+                    "itemReviewed": {
+                        "@type": "Product",
+                        "name": burger.burgerName,
+                        "image": new URL(burger.image, window.location.href).href,
+                        "offers": {
+                            "@type": "Offer",
+                            "price": parseFloat(burger.price) || 0,
+                            "priceCurrency": "CHF",
+                            "offeredBy": {
+                                "@type": "FoodEstablishment",
+                                "name": burger.name
+                            }
+                        }
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": burger.overallScore,
+                        "bestRating": "10",
+                        "worstRating": "1"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Sven Adrian"
+                    },
+                    "datePublished": burger.lastTasted,
+                    "reviewBody": burger.seoReview || burger.review
+                }))
+            };
+
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.text = JSON.stringify(schema);
+            document.head.appendChild(script);
         }
 
         function renderBurgerCard(burger) {
@@ -298,7 +364,7 @@
             card.innerHTML = `
                 <!-- Image -->
                 <div class="h-64 bg-gray-800 relative overflow-hidden">
-                    <img src="${burger.image}" alt="${burger.burgerName} at ${burger.name} - Zurich Burger Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100">
+                    <img src="${burger.image}" alt="Best Burger in Zurich 2026: ${burger.burgerName} at ${burger.name} Review" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100">
                     
                     <!-- Rank Badge -->
                     <div class="absolute top-4 left-4 bg-accent text-black w-10 h-10 flex items-center justify-center font-heading font-bold text-xl rounded shadow-lg z-10">
