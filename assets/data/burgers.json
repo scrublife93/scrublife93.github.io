@@ -26,8 +26,34 @@
         "overallScore": 9.5
     },
     {
-        "id": "2d3b0d18-1658-806d-9e25-d1b7f30d1d12",
+        "id": "2ddb0d18-1658-81a4-b777-d66f0f6d43d2",
         "rank": 2,
+        "name": "Sando",
+        "burgerName": "Miso Bacon Double",
+        "price": "22.00 CHF",
+        "place": "Zurich",
+        "lastTasted": "2026-01-03",
+        "image": "../assets/images/burgers/sando_1.webp",
+        "images": [
+            "../assets/images/burgers/sando_1.webp"
+        ],
+        "ratings": {
+            "bun": 8,
+            "meat": 9,
+            "sauce": 8
+        },
+        "review": "Very good burger. The meat is very juicy and full of flavor. The bun is delicious and soft, it soaks up with the sauce a bit too fast which makes this burger messy too eat. The sauce is special and tasty. Altough I personally didnt really like the miso flavor in the burger this burger still tasted great.",
+        "approved": false,
+        "valueScore": 7,
+        "valueForMoney": "\ud83d\udcb8 A Bit Pricey",
+        "shortVerdict": "Excellent burger with a special touch",
+        "seoReview": "Located in Zurich, Sando offers a sophisticated take on the burger with their Miso Bacon Double. At 22 CHF, the price reflects its premium ingredients and creative flair. The heart of the experience is the beef patty, which is remarkably juicy and delivers a deep, savory punch. It is paired with a soft bun that is both delicious and light, though its porous nature soaks up the signature sauce quite rapidly, creating a rich and somewhat messy experience. The sauce itself brings a unique profile to the dish, incorporating distinct miso notes that provide a savory depth, even if the flavor profile is quite specific. Despite the slightly higher price point, the quality of the meat and the thoughtful construction make this a highly recommended choice for enthusiasts looking for a refined burger in the city.",
+        "seoVerdict": "A high-quality, juicy burger with unique miso flavors in central Zurich.",
+        "overallScore": 8.5
+    },
+    {
+        "id": "2d3b0d18-1658-806d-9e25-d1b7f30d1d12",
+        "rank": 3,
         "name": "The Bite",
         "burgerName": "The Classic",
         "price": "27.00 CHF",
@@ -53,7 +79,7 @@
     },
     {
         "id": "2d6b0d18-1658-8102-8959-dce3f5ec803a",
-        "rank": 3,
+        "rank": 4,
         "name": "Huncho",
         "burgerName": "Huncho Burger",
         "price": "23.00 CHF",
@@ -81,7 +107,7 @@
     },
     {
         "id": "2d3b0d18-1658-8076-ab9a-e7992602de30",
-        "rank": 4,
+        "rank": 5,
         "name": "Black Tap",
         "burgerName": "All American",
         "price": "17.00 CHF",
@@ -107,7 +133,7 @@
     },
     {
         "id": "2d7b0d18-1658-81ca-94f8-ff7b07379e53",
-        "rank": 5,
+        "rank": 6,
         "name": "Holy Cow",
         "burgerName": "Smoky Big Cheese",
         "price": "15.40 CHF",
@@ -133,8 +159,63 @@
         "overallScore": 7.6
     },
     {
+        "id": "2ddb0d18-1658-810c-bda3-f32c0f003f64",
+        "rank": 7,
+        "name": "Action Burger",
+        "burgerName": "Double Cheeseburger",
+        "price": "17.50 CHF",
+        "place": "Zurich",
+        "lastTasted": "2026-01-03",
+        "image": "../assets/images/burgers/action_burger_1.webp",
+        "images": [
+            "../assets/images/burgers/action_burger_1.webp",
+            "../assets/images/burgers/action_burger_2.webp"
+        ],
+        "ratings": {
+            "bun": 6,
+            "meat": 8.5,
+            "sauce": 7
+        },
+        "review": "Good burger. The bun is a bit dry but tastes ok. The meat is very good, well seasoned with a nice crust but still juicy. The sauce is just ketchup and moustard. While this is ok it misses to deliver a certain punch. ",
+        "approved": false,
+        "valueScore": 7.7,
+        "valueForMoney": "\u2705 Great Value",
+        "shortVerdict": "Ok burger. Good meat, a bit dry bun, average sauce",
+        "seoReview": "Action Burger in Zurich offers a solid take on the classic Double Cheeseburger, providing great value at 17.5 CHF. The highlight of this meal is undoubtedly the meat; the patties are expertly seasoned, featuring a satisfyingly crisp crust while maintaining a juicy interior. While the protein carries the experience, other elements are more functional. The bun is serviceable but leans slightly dry, lacking the pillowy texture found in top-tier burgers. For the sauce, the kitchen keeps it simple with a classic combination of ketchup and mustard. While traditional, this pairing lacks a signature punch that could elevate the dish further. Overall, it is a well-executed burger that prioritizes high-quality meat and value for money. For those in Zurich seeking a reliable, hearty meal without over-complicated toppings, this location delivers a dependable experience where the seasoned beef truly shines.",
+        "seoVerdict": "Excellent juicy patties make this Zurich burger a high-value, reliable choice.",
+        "overallScore": 7.5
+    },
+    {
+        "id": "2d5b0d18-1658-81af-9696-fff888893eb4",
+        "rank": 8,
+        "name": "Bourger Boutique",
+        "burgerName": "Der Speckige",
+        "price": "17.00 CHF",
+        "place": "Zurich",
+        "lastTasted": "2025-12-26",
+        "image": "../assets/images/burgers/bourger_boutique_1.webp",
+        "images": [
+            "../assets/images/burgers/bourger_boutique_1.webp",
+            "../assets/images/burgers/bourger_boutique_2.webp",
+            "../assets/images/burgers/bourger_boutique_3.webp"
+        ],
+        "ratings": {
+            "bun": 9,
+            "meat": 6.5,
+            "sauce": 8
+        },
+        "review": "Solid burger, the bun is fluffy and flavorful, the patty is not smashed but regular, very juicy but lacks the special something factor and seasoning. The sauce is good not overpowering the burger taste. While the sauce is very good it lacks distinction. What was very welcome distinction was their use of a regular cucumber instead of pickles. Makes the burger feels fresh and different.",
+        "approved": false,
+        "valueScore": 7.9,
+        "valueForMoney": "\u2705 Great Value",
+        "shortVerdict": "Solid fresh burger. Average",
+        "seoReview": "Bourger Boutique in Zurich offers a reliable experience with their Der Speckige burger. The standout feature is undoubtedly the bun\u2014exceptionally fluffy and packed with flavor, providing a premium foundation for the meal. While the patty arrives juicy, it follows a traditional thick style rather than a smash, and it lacks the aggressive seasoning needed to truly stand out in a competitive market. A refreshing twist comes from the substitution of standard pickles for fresh cucumber slices, lending a clean, crisp finish to every bite. The sauce complements the meat without overwhelming it, though it stops short of having a signature distinction. It is a well-constructed, fresh burger that hits the mark for quality without pushing the boundaries of innovation.",
+        "seoVerdict": "Fresh ingredients and fluffy buns define this solid, reliable Zurich burger.",
+        "overallScore": 7.5
+    },
+    {
         "id": "2d4b0d18-1658-81af-a705-dd252c149a08",
-        "rank": 6,
+        "rank": 9,
         "name": "The Smash Burger Bear",
         "burgerName": "Smash Cheese Burger",
         "price": "19.50 CHF",
@@ -160,36 +241,8 @@
         "overallScore": 7.5
     },
     {
-        "id": "2d5b0d18-1658-81af-9696-fff888893eb4",
-        "rank": 7,
-        "name": "Bourger Boutique",
-        "burgerName": "Der Speckige",
-        "price": "17.00 CHF",
-        "place": "Zurich",
-        "lastTasted": "2025-12-26",
-        "image": "../assets/images/burgers/bourger_boutique_1.webp",
-        "images": [
-            "../assets/images/burgers/bourger_boutique_1.webp",
-            "../assets/images/burgers/bourger_boutique_2.webp",
-            "../assets/images/burgers/bourger_boutique_3.webp"
-        ],
-        "ratings": {
-            "bun": 9,
-            "meat": 6,
-            "sauce": 8
-        },
-        "review": "Solid burger, the bun is fluffy and flavorful, the patty is not smashed but regular, very juicy but lacks the special something factor and seasoning. The sauce is good not overpowering the burger taste. While the sauce is very good it lacks distinction. What was very welcome distinction was their use of a regular cucumber instead of pickles. Makes the burger feels fresh and different.",
-        "approved": false,
-        "valueScore": 7.7,
-        "valueForMoney": "\u2705 Great Value",
-        "shortVerdict": "Solid fresh burger. Average",
-        "seoReview": "Bourger Boutique in Zurich offers a reliable experience with their Der Speckige burger. The standout feature is undoubtedly the bun\u2014exceptionally fluffy and packed with flavor, providing a premium foundation for the meal. While the patty arrives juicy, it follows a traditional thick style rather than a smash, and it lacks the aggressive seasoning needed to truly stand out in a competitive market. A refreshing twist comes from the substitution of standard pickles for fresh cucumber slices, lending a clean, crisp finish to every bite. The sauce complements the meat without overwhelming it, though it stops short of having a signature distinction. It is a well-constructed, fresh burger that hits the mark for quality without pushing the boundaries of innovation.",
-        "seoVerdict": "Fresh ingredients and fluffy buns define this solid, reliable Zurich burger.",
-        "overallScore": 7.3
-    },
-    {
         "id": "2d4b0d18-1658-801c-b5e6-faf9c8ec6897",
-        "rank": 8,
+        "rank": 10,
         "name": "Smash Club",
         "burgerName": "Double Cheeseburger",
         "price": "18.00 CHF",
@@ -215,7 +268,7 @@
     },
     {
         "id": "2d9b0d18-1658-8189-a4b7-f6cefe57942a",
-        "rank": 9,
+        "rank": 11,
         "name": "Smash Burger Shahba Rose",
         "burgerName": "Smash Double Cheeseburger",
         "price": "16.90 CHF",
