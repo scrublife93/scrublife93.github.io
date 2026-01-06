@@ -292,5 +292,32 @@
         "seoReview": "If you find yourself in Zurich craving a Smash Double Cheeseburger, Smash Burger Shahba Rose offers a mixed experience. The highlight of this smash burger style meal is undoubtedly the meat. The patties are well-seasoned, featuring a nice crispiness that delivers on flavor and texture. However, while the beef excels, other components struggle to keep pace. The sauce is functional and provides a decent base without being overpowering, yet it fails to stand out as a signature element. The primary drawback is the bun, which unfortunately feels bland and notably dry, detracting from the overall enjoyment of the dish. Priced at 16.9 CHF, the value feels a bit steep when considering the inconsistency between the high-quality meat and the disappointing bread. It is a balanced meal that succeeds on the strength of its patties but leaves room for improvement in its presentation and components.",
         "seoVerdict": "High-quality crispy beef overshadowed by a dry and bland burger bun.",
         "overallScore": 6.5
+    },
+    {
+        "id": "2dfb0d18-1658-81c7-af14-c7038dd21bc3",
+        "rank": 12,
+        "name": "Burger King",
+        "burgerName": "Cheeseburger",
+        "price": "3.40 CHF",
+        "place": "Zurich",
+        "lastTasted": "2026-01-05",
+        "image": "../assets/images/burgers/burger_king_1.webp",
+        "images": [
+            "../assets/images/burgers/burger_king_1.webp",
+            "../assets/images/burgers/burger_king_2.webp"
+        ],
+        "ratings": {
+            "bun": 3,
+            "meat": 4,
+            "sauce": 4
+        },
+        "review": "Had this burger in Oerlikon. The bun is very dry. Also the meat was surprisingly dry as well. The meat is ok seasoned. But overall the burger is dry to eat and doesn\u2018t really leave any gret f\u00f6avpurs to taste. The sauce is very standard ketchup and moustard, but the moustard taste was too strong.",
+        "approved": false,
+        "valueScore": 20.1,
+        "valueForMoney": "\ud83c\udfc6 Legendary Steal",
+        "shortVerdict": "Bad, dry burger",
+        "seoReview": "Visiting the Burger King in Zurich Oerlikon for a quick Cheeseburger, the experience was unfortunately defined by a lack of moisture. At 3.4 CHF, this fast-food staple is positioned as an affordable option, yet the quality falls short of expectations. The bun was notably dry and lacked the soft texture one hopes for in a classic burger. Similarly, the meat patty was surprisingly parched, though the seasoning itself was passable. The condiment profile relied on a standard combination of ketchup and mustard, but the mustard flavor was overly dominant, masking the other ingredients. While the price point suggests value for money, the overall execution leaves much to be desired. This particular Zurich location struggles to deliver a cohesive flavor profile, resulting in a burger that is difficult to enjoy due to its parched components and unbalanced sauce distribution.",
+        "seoVerdict": "A dry, poorly balanced cheeseburger that fails to deliver despite the low price.",
+        "overallScore": 3.8
     }
 ]
