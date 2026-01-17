@@ -1,7 +1,34 @@
 [
     {
-        "id": "2d3b0d18-1658-80d9-a79a-c76627b2f32f",
+        "id": "2eab0d18-1658-811d-99dd-d89da4a5d78e",
         "rank": 1,
+        "name": "Goodys",
+        "burgerName": "Classic Cheeseburger",
+        "price": "18.90 CHF",
+        "place": "Zurich",
+        "lastTasted": "2026-01-16",
+        "image": "../assets/images/burgers/goodys_1.webp",
+        "images": [
+            "../assets/images/burgers/goodys_1.webp",
+            "../assets/images/burgers/goodys_2.webp"
+        ],
+        "ratings": {
+            "bun": 9,
+            "meat": 10,
+            "sauce": 10
+        },
+        "review": "Excellent smash burger. The bun is delicious fluffly and holds together well. The patty is perfectly seasoned with a nice crust. The secret is sauce is delicious and adds well to the overall taste. Only negative point is that the even double burger is a bit small.",
+        "approved": false,
+        "valueScore": 9.3,
+        "valueForMoney": "\ud83c\udfc6 Legendary Steal",
+        "shortVerdict": "Fantastic Burger",
+        "seoReview": "At Goodys in Zurich, the Classic Cheeseburger stands out as an exceptional example of the smash burger style. Priced at 18.9 CHF, this meal offers legendary value for such high-quality execution. The experience begins with a delicious, fluffy bun that maintains its structural integrity until the very last bite. The heart of the burger is the patty, which is seasoned perfectly and boasts an impressive crust, showcasing expert technique on the grill. This is elevated further by a secret sauce that integrates beautifully with the other ingredients, creating a cohesive and flavorful profile. While the portions lean toward the smaller side, even with a double patty, the concentration of flavor is remarkable. For those in Zurich seeking a well-crafted burger where every component from the bread to the meat is handled with care, this offering is highly recommended as a top-tier choice for enthusiasts of the craft.",
+        "seoVerdict": "A masterfully executed smash burger in Zurich offering legendary flavor and value.",
+        "overallScore": 9.8
+    },
+    {
+        "id": "2d3b0d18-1658-80d9-a79a-c76627b2f32f",
+        "rank": 2,
         "name": "Burgermeister",
         "burgerName": "The Cheeseburger",
         "price": "15.90 CHF",
@@ -27,7 +54,7 @@
     },
     {
         "id": "2ddb0d18-1658-81a4-b777-d66f0f6d43d2",
-        "rank": 2,
+        "rank": 3,
         "name": "Sando",
         "burgerName": "Miso Bacon Double",
         "price": "22.00 CHF",
@@ -53,7 +80,7 @@
     },
     {
         "id": "2d3b0d18-1658-806d-9e25-d1b7f30d1d12",
-        "rank": 3,
+        "rank": 4,
         "name": "The Bite",
         "burgerName": "The Classic",
         "price": "27.00 CHF",
@@ -79,7 +106,7 @@
     },
     {
         "id": "2d6b0d18-1658-8102-8959-dce3f5ec803a",
-        "rank": 4,
+        "rank": 5,
         "name": "Huncho",
         "burgerName": "Huncho Burger",
         "price": "23.00 CHF",
@@ -107,7 +134,7 @@
     },
     {
         "id": "2d3b0d18-1658-8076-ab9a-e7992602de30",
-        "rank": 5,
+        "rank": 6,
         "name": "Black Tap",
         "burgerName": "All American",
         "price": "17.00 CHF",
@@ -133,7 +160,7 @@
     },
     {
         "id": "2d7b0d18-1658-81ca-94f8-ff7b07379e53",
-        "rank": 6,
+        "rank": 7,
         "name": "Holy Cow",
         "burgerName": "Smoky Big Cheese",
         "price": "15.40 CHF",
@@ -160,7 +187,7 @@
     },
     {
         "id": "2ddb0d18-1658-810c-bda3-f32c0f003f64",
-        "rank": 7,
+        "rank": 8,
         "name": "Action Burger",
         "burgerName": "Double Cheeseburger",
         "price": "17.50 CHF",
@@ -187,7 +214,7 @@
     },
     {
         "id": "2d5b0d18-1658-81af-9696-fff888893eb4",
-        "rank": 8,
+        "rank": 9,
         "name": "Bourger Boutique",
         "burgerName": "Der Speckige",
         "price": "17.00 CHF",
@@ -215,7 +242,7 @@
     },
     {
         "id": "2d4b0d18-1658-81af-a705-dd252c149a08",
-        "rank": 9,
+        "rank": 10,
         "name": "The Smash Burger Bear",
         "burgerName": "Smash Cheese Burger",
         "price": "19.50 CHF",
@@ -242,7 +269,7 @@
     },
     {
         "id": "2d4b0d18-1658-801c-b5e6-faf9c8ec6897",
-        "rank": 10,
+        "rank": 11,
         "name": "Smash Club",
         "burgerName": "Double Cheeseburger",
         "price": "18.00 CHF",
@@ -268,7 +295,7 @@
     },
     {
         "id": "2d9b0d18-1658-8189-a4b7-f6cefe57942a",
-        "rank": 11,
+        "rank": 12,
         "name": "Smash Burger Shahba Rose",
         "burgerName": "Smash Double Cheeseburger",
         "price": "16.90 CHF",
@@ -295,7 +322,7 @@
     },
     {
         "id": "2dfb0d18-1658-81c7-af14-c7038dd21bc3",
-        "rank": 12,
+        "rank": 13,
         "name": "Burger King",
         "burgerName": "Cheeseburger",
         "price": "3.40 CHF",
