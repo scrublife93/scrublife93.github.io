@@ -10,7 +10,8 @@
         "image": "../assets/images/burgers/goodys_1.webp",
         "images": [
             "../assets/images/burgers/goodys_1.webp",
-            "../assets/images/burgers/goodys_2.webp"
+            "../assets/images/burgers/goodys_2.webp",
+            "../assets/images/burgers/goodys_3.webp"
         ],
         "ratings": {
             "bun": 9,
