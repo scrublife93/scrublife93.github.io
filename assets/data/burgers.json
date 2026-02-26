@@ -273,26 +273,28 @@
         "rank": 11,
         "name": "Smash Club",
         "burgerName": "Double Cheeseburger",
-        "price": "18.00 CHF",
+        "price": "16.90 CHF",
         "place": "Zurich",
-        "lastTasted": "2024-12-18",
+        "lastTasted": "2026-02-25",
         "image": "../assets/images/burgers/smash_club_1.webp",
         "images": [
-            "../assets/images/burgers/smash_club_1.webp"
+            "../assets/images/burgers/smash_club_1.webp",
+            "../assets/images/burgers/smash_club_2.webp",
+            "../assets/images/burgers/smash_club_3.webp"
         ],
         "ratings": {
-            "bun": 7,
+            "bun": 8.5,
             "meat": 7,
-            "sauce": 7
+            "sauce": 6
         },
-        "review": "Delivery only smash burger. Good taste. Good option for delivery. Not a standout but good. ",
+        "review": "Delivery only smash burger. Good taste. Good option for delivery. Not a standout but good. The patty is a bit rubbery and is lacking a distinctice crust but is still ok in taste. The bun is very good, holds up well, doesnt fall apart, potato brioche bun with good taste, almost tastes like a weggli, is very distinctive. The sauce is heavy on mustard, would prefer a sauce with distinction.",
         "approved": false,
-        "valueScore": 7,
-        "valueForMoney": "\ud83d\udcb8 A Bit Pricey",
-        "shortVerdict": "",
-        "seoReview": "Smash Club in Zurich offers a dependable delivery-only experience for fans of the classic smash burger. The Double Cheeseburger features well-seasoned patties and a bun that maintains its integrity during transport. While the flavor profile is consistent and the sauce adds a pleasant touch, it lacks the unique character of a standout destination meal. It remains a solid, high-value choice for a night in when you want a quality burger delivered without any unnecessary frills.",
-        "seoVerdict": "A dependable Zurich delivery choice for a classic, well-executed smash burger.",
-        "overallScore": 7
+        "valueScore": 7.6,
+        "valueForMoney": "\u2705 Great Value",
+        "shortVerdict": "Delivery Burger, great bun, lacking sauce",
+        "seoReview": "Smash Club in Zurich offers a Double Cheeseburger specifically tailored for the delivery experience. Priced at 16.9 CHF, this smash burger provides great value for money for those dining at home. The standout element is the potato brioche bun, which is remarkably well-executed. It possesses a distinctive flavor profile similar to a traditional Swiss Weggli and maintains its structure perfectly without falling apart. While the beef patties are flavorful, they lack the characteristic crispy crust associated with the style and lean toward a slightly rubbery consistency. The accompanying sauce is quite heavy on mustard, which may feel a bit underwhelming for those seeking a more complex house blend. Ultimately, Smash Club delivers a solid and dependable meal, serving as a well-rounded option for a convenient burger fix even if it lacks some of the finer details of premium alternatives.",
+        "seoVerdict": "A reliable Zurich delivery burger featuring an exceptional, Weggli-style potato brioche bun.",
+        "overallScore": 7.1
     },
     {
         "id": "2d9b0d18-1658-8189-a4b7-f6cefe57942a",
