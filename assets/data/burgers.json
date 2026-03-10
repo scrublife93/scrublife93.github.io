@@ -187,8 +187,37 @@
         "overallScore": 7.6
     },
     {
-        "id": "2ddb0d18-1658-810c-bda3-f32c0f003f64",
+        "id": "31bb0d18-1658-816d-b19c-d6ae9d6aca47",
         "rank": 8,
+        "name": "The Smash",
+        "burgerName": "Classic Smash Burger",
+        "price": "12.90 CHF",
+        "place": "Zurich",
+        "lastTasted": "2026-03-06",
+        "image": "../assets/images/burgers/the_smash_1.webp",
+        "images": [
+            "../assets/images/burgers/the_smash_1.webp",
+            "../assets/images/burgers/the_smash_2.webp",
+            "../assets/images/burgers/the_smash_3.webp",
+            "../assets/images/burgers/the_smash_4.webp"
+        ],
+        "ratings": {
+            "bun": 7,
+            "meat": 8,
+            "sauce": 7
+        },
+        "review": "Good Burger. The bun is fluffy, tastes and feels pretty standard but holds up well. The meat is grilles and seasoned nicely, nice maillaird reaction, juicy and tasty. The sauce has a distinct taste and complements the burger well. Price Value is great. There is not a lot to be improved. Still the burger does not feel like a top tier option, but it is a very good option stilm",
+        "approved": false,
+        "valueScore": 10.5,
+        "valueForMoney": "\ud83c\udfc6 Legendary Steal",
+        "shortVerdict": "Good burger, great price / value",
+        "seoReview": "The Smash in Zurich offers a solid Classic Smash Burger that stands out for its exceptional value at 12.9 CHF, making it a legendary steal for the city. The experience begins with a standard but reliable bun that maintains its fluffy texture without falling apart under pressure. At the heart of the burger, the patty is the star, showcasing a well-executed Maillard reaction that results in a juicy, seasoned meat with plenty of flavor. This is complemented by a distinct sauce that adds a unique character to every bite. While it might not reach the heights of a top-tier gourmet option, the combination of high-quality components and an affordable price point makes it a very strong contender in the local scene. For those seeking a well-balanced and satisfying smash burger in Zurich, this meal delivers exactly what it promises without any major flaws to distract from the enjoyment.",
+        "seoVerdict": "A well-executed Zurich smash burger that offers legendary value for money.",
+        "overallScore": 7.5
+    },
+    {
+        "id": "2ddb0d18-1658-810c-bda3-f32c0f003f64",
+        "rank": 9,
         "name": "Action Burger",
         "burgerName": "Double Cheeseburger",
         "price": "17.50 CHF",
@@ -215,7 +244,7 @@
     },
     {
         "id": "2d5b0d18-1658-81af-9696-fff888893eb4",
-        "rank": 9,
+        "rank": 10,
         "name": "Bourger Boutique",
         "burgerName": "Der Speckige",
         "price": "17.00 CHF",
@@ -243,7 +272,7 @@
     },
     {
         "id": "2d4b0d18-1658-81af-a705-dd252c149a08",
-        "rank": 10,
+        "rank": 11,
         "name": "The Smash Burger Bear",
         "burgerName": "Smash Cheese Burger",
         "price": "19.50 CHF",
@@ -270,7 +299,7 @@
     },
     {
         "id": "2d4b0d18-1658-801c-b5e6-faf9c8ec6897",
-        "rank": 11,
+        "rank": 12,
         "name": "Smash Club",
         "burgerName": "Double Cheeseburger",
         "price": "16.90 CHF",
@@ -298,7 +327,7 @@
     },
     {
         "id": "2d9b0d18-1658-8189-a4b7-f6cefe57942a",
-        "rank": 12,
+        "rank": 13,
         "name": "Smash Burger Shahba Rose",
         "burgerName": "Smash Double Cheeseburger",
         "price": "16.90 CHF",
@@ -325,7 +354,7 @@
     },
     {
         "id": "2dfb0d18-1658-81c7-af14-c7038dd21bc3",
-        "rank": 13,
+        "rank": 14,
         "name": "Burger King",
         "burgerName": "Cheeseburger",
         "price": "3.40 CHF",
