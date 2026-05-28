@@ -147,7 +147,7 @@ def fetch_burgers():
                 {
                     "property": "Status",
                     "status": {
-                        "equals": "Ready to publish"
+                        "equals": "Ready To Publish"
                     }
                 },
                 {
