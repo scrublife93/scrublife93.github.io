@@ -80,8 +80,36 @@
         "overallScore": 8.5
     },
     {
-        "id": "2d3b0d18-1658-806d-9e25-d1b7f30d1d12",
+        "id": "359b0d18-1658-81ca-85d8-d5e3b85e6687",
         "rank": 4,
+        "name": "Pretty Patty",
+        "burgerName": "Classic Medium",
+        "price": "14.00 CHF",
+        "place": "Zurich",
+        "lastTasted": "2026-05-07",
+        "image": "../assets/images/burgers/pretty_patty_1.webp",
+        "images": [
+            "../assets/images/burgers/pretty_patty_1.webp",
+            "../assets/images/burgers/pretty_patty_2.webp",
+            "../assets/images/burgers/pretty_patty_3.webp"
+        ],
+        "ratings": {
+            "bun": 8,
+            "meat": 9,
+            "sauce": 7
+        },
+        "review": "Very tasty burger. Patty is seasoned well, good crust but not dry, very flavorful. The bun is tasty and holds up well. The sauce is ketchup mistard, mustard overpowers a bit. But great burger. Visual presentation good be a little bit better.",
+        "approved": false,
+        "valueScore": 10.7,
+        "valueForMoney": "\ud83c\udfc6 Legendary Steal",
+        "shortVerdict": "Tasty patty",
+        "seoReview": "Pretty Patty in Zurich offers a standout experience for burger enthusiasts looking for exceptional value. Their Classic Medium burger, priced at 14 CHF, is a legendary steal considering the quality of ingredients. The highlight is undoubtedly the beef patty, which features a perfectly seasoned crust while remaining remarkably juicy and flavorful throughout. This high-quality meat is cradled by a tasty bun that maintains its structural integrity until the very last bite. While the sauce\u2014a classic blend of ketchup and mustard\u2014leans slightly heavy on the mustard notes, it still complements the savory elements of the smash-style burger. Although the visual presentation is somewhat modest and could be refined, the culinary execution far outweighs any aesthetic shortcomings. For anyone in Zurich seeking a well-executed and satisfying burger that respects both the palate and the wallet, Pretty Patty delivers a highly recommended meal that focuses on what matters most: flavor and technique.",
+        "seoVerdict": "A high-quality Zurich smash burger offering exceptional value and a flavorful patty.",
+        "overallScore": 8.3
+    },
+    {
+        "id": "2d3b0d18-1658-806d-9e25-d1b7f30d1d12",
+        "rank": 5,
         "name": "The Bite",
         "burgerName": "The Classic",
         "price": "27.00 CHF",
@@ -107,7 +135,7 @@
     },
     {
         "id": "2d6b0d18-1658-8102-8959-dce3f5ec803a",
-        "rank": 5,
+        "rank": 6,
         "name": "Huncho",
         "burgerName": "Huncho Burger",
         "price": "23.00 CHF",
@@ -135,7 +163,7 @@
     },
     {
         "id": "2d3b0d18-1658-8076-ab9a-e7992602de30",
-        "rank": 6,
+        "rank": 7,
         "name": "Black Tap",
         "burgerName": "All American",
         "price": "17.00 CHF",
@@ -161,7 +189,7 @@
     },
     {
         "id": "2d7b0d18-1658-81ca-94f8-ff7b07379e53",
-        "rank": 7,
+        "rank": 8,
         "name": "Holy Cow",
         "burgerName": "Smoky Big Cheese",
         "price": "15.40 CHF",
@@ -188,7 +216,7 @@
     },
     {
         "id": "31bb0d18-1658-816d-b19c-d6ae9d6aca47",
-        "rank": 8,
+        "rank": 9,
         "name": "The Smash",
         "burgerName": "Classic Smash Burger",
         "price": "12.90 CHF",
@@ -217,7 +245,7 @@
     },
     {
         "id": "2ddb0d18-1658-810c-bda3-f32c0f003f64",
-        "rank": 9,
+        "rank": 10,
         "name": "Action Burger",
         "burgerName": "Double Cheeseburger",
         "price": "17.50 CHF",
@@ -244,7 +272,7 @@
     },
     {
         "id": "2d5b0d18-1658-81af-9696-fff888893eb4",
-        "rank": 10,
+        "rank": 11,
         "name": "Bourger Boutique",
         "burgerName": "Der Speckige",
         "price": "17.00 CHF",
@@ -272,7 +300,7 @@
     },
     {
         "id": "2d4b0d18-1658-81af-a705-dd252c149a08",
-        "rank": 11,
+        "rank": 12,
         "name": "The Smash Burger Bear",
         "burgerName": "Smash Cheese Burger",
         "price": "19.50 CHF",
@@ -299,7 +327,7 @@
     },
     {
         "id": "2d4b0d18-1658-801c-b5e6-faf9c8ec6897",
-        "rank": 12,
+        "rank": 13,
         "name": "Smash Club",
         "burgerName": "Double Cheeseburger",
         "price": "16.90 CHF",
@@ -326,8 +354,35 @@
         "overallScore": 7.1
     },
     {
+        "id": "327b0d18-1658-81d9-91d5-ff0d9125ebc0",
+        "rank": 14,
+        "name": "Happy Beck",
+        "burgerName": "Cheeseburger",
+        "price": "11.50 CHF",
+        "place": "Zurich",
+        "lastTasted": "2026-03-16",
+        "image": "../assets/images/burgers/happy_beck_1.webp",
+        "images": [
+            "../assets/images/burgers/happy_beck_1.webp",
+            "../assets/images/burgers/happy_beck_2.webp"
+        ],
+        "ratings": {
+            "bun": 6,
+            "meat": 8,
+            "sauce": 5
+        },
+        "review": "The perfect late night snack. Happy Beck at Langstrasse is almost always open. The cheeseburger is ready and they will heat it up for you. Because of this reheating the bun becomes a bit fluffy, almost like a make a home microwave burger, but the taste of the bun is still very good nonetheless. The patty is well seasoned and very juicy. The cheese is real cheese and has a distinct tasty flavor. Nothing special about the sauce to be mentioned. Difficult to compare this burger to other burgers in Zurich. But a great option for late night munchies.",
+        "approved": false,
+        "valueScore": 10.6,
+        "valueForMoney": "\ud83c\udfc6 Legendary Steal",
+        "shortVerdict": "The perfect late night snack",
+        "seoReview": "Located on Langstrasse, Happy Beck offers a reliable cheeseburger that serves as a legendary steal for late-night diners in Zurich. At 11.5 CHF, the value for money is undeniable for the local scene. The experience centers on a pre-prepared burger that is reheated on the spot. While this reheating process gives the bun a soft, fluffy texture reminiscent of a home-prepared snack, the flavor remains surprisingly good. The highlight is undoubtedly the beef patty, which is well-seasoned and impressively juicy, further enhanced by the distinct and savory taste of real cheese. While the sauce is standard and provides a neutral backdrop, the overall combination is effective. It is a unique entry in the local burger market, focusing less on artisanal flair and more on being a satisfying, accessible solution for post-midnight cravings when convenience and quality beef are the primary goals.",
+        "seoVerdict": "A legendary value cheeseburger in Zurich, perfect for satisfying late-night cravings.",
+        "overallScore": 6.8
+    },
+    {
         "id": "2d9b0d18-1658-8189-a4b7-f6cefe57942a",
-        "rank": 13,
+        "rank": 15,
         "name": "Smash Burger Shahba Rose",
         "burgerName": "Smash Double Cheeseburger",
         "price": "16.90 CHF",
@@ -354,7 +409,7 @@
     },
     {
         "id": "2dfb0d18-1658-81c7-af14-c7038dd21bc3",
-        "rank": 14,
+        "rank": 16,
         "name": "Burger King",
         "burgerName": "Cheeseburger",
         "price": "3.40 CHF",
