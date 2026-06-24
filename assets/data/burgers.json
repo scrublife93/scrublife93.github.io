@@ -215,8 +215,36 @@
         "overallScore": 7.6
     },
     {
-        "id": "31bb0d18-1658-816d-b19c-d6ae9d6aca47",
+        "id": "388b0d18-1658-81b7-909d-fe542a98a013",
         "rank": 9,
+        "name": "GUMP",
+        "burgerName": "GUMP Burger",
+        "price": "16.80 CHF",
+        "place": "Zurich",
+        "lastTasted": "2026-06-23",
+        "image": "../assets/images/burgers/gump_1.webp",
+        "images": [
+            "../assets/images/burgers/gump_1.webp",
+            "../assets/images/burgers/gump_2.webp",
+            "../assets/images/burgers/gump_3.webp"
+        ],
+        "ratings": {
+            "bun": 8,
+            "meat": 7.5,
+            "sauce": 7
+        },
+        "review": "The burger was really good. It is not a smash burger, but more of a classic, regular burger. The place itself is very nice, with a pleasant atmosphere and beautiful surroundings, especially for lunch.  The burger is on the more expensive side, but the quality feels high. The patty was juicy, fluffy, held together well, and tasted like premium beef. It was cooked nicely and well seasoned. I also liked the bun and the overall freshness of the burger.  The sauce seemed mayo-based and worked well, but the caramelized onions were a bit too dominant. I liked their flavor, but there could have been slightly less, because they overpowered almost every bite.  Overall, it felt like a fresh, juicy, high-quality burger and the spot is definitely worth visiting.",
+        "approved": false,
+        "valueScore": 8,
+        "valueForMoney": "\u2705 Great Value",
+        "shortVerdict": "Juicy burger in nice surrounding. Not gourmet but worth the lunch.",
+        "seoReview": "Located in the heart of Zurich, GUMP offers a refined take on the classic burger experience. The GUMP Burger is a standout choice for those seeking a high-quality, traditional patty rather than a typical smash burger. Priced at 16.8 CHF, it represents great value given the premium ingredients and the restaurant's beautiful surroundings, which are particularly pleasant for a midday meal. The burger features a well-executed, fluffy bun that maintains its structural integrity throughout. Inside, the patty consists of juicy, seasoned beef that tastes distinctly premium and arrives perfectly cooked. While the mayo-based sauce complements the meat, the generous portion of caramelized onions tends to dominate the flavor profile. Though these onions are tasty, their intensity occasionally overpowers the other fresh components. Overall, the GUMP Burger delivers a fresh and satisfying lunch in a picturesque setting, making it a reliable destination for quality dining in the city.",
+        "seoVerdict": "Premium classic burgers in a beautiful Zurich atmosphere, perfect for lunch.",
+        "overallScore": 7.5
+    },
+    {
+        "id": "31bb0d18-1658-816d-b19c-d6ae9d6aca47",
+        "rank": 10,
         "name": "The Smash",
         "burgerName": "Classic Smash Burger",
         "price": "12.90 CHF",
@@ -245,7 +273,7 @@
     },
     {
         "id": "2ddb0d18-1658-810c-bda3-f32c0f003f64",
-        "rank": 10,
+        "rank": 11,
         "name": "Action Burger",
         "burgerName": "Double Cheeseburger",
         "price": "17.50 CHF",
@@ -272,7 +300,7 @@
     },
     {
         "id": "2d5b0d18-1658-81af-9696-fff888893eb4",
-        "rank": 11,
+        "rank": 12,
         "name": "Bourger Boutique",
         "burgerName": "Der Speckige",
         "price": "17.00 CHF",
@@ -300,7 +328,7 @@
     },
     {
         "id": "2d4b0d18-1658-81af-a705-dd252c149a08",
-        "rank": 12,
+        "rank": 13,
         "name": "The Smash Burger Bear",
         "burgerName": "Smash Cheese Burger",
         "price": "19.50 CHF",
@@ -327,7 +355,7 @@
     },
     {
         "id": "2d4b0d18-1658-801c-b5e6-faf9c8ec6897",
-        "rank": 13,
+        "rank": 14,
         "name": "Smash Club",
         "burgerName": "Double Cheeseburger",
         "price": "16.90 CHF",
@@ -355,7 +383,7 @@
     },
     {
         "id": "327b0d18-1658-81d9-91d5-ff0d9125ebc0",
-        "rank": 14,
+        "rank": 15,
         "name": "Happy Beck",
         "burgerName": "Cheeseburger",
         "price": "11.50 CHF",
@@ -382,7 +410,7 @@
     },
     {
         "id": "2d9b0d18-1658-8189-a4b7-f6cefe57942a",
-        "rank": 15,
+        "rank": 16,
         "name": "Smash Burger Shahba Rose",
         "burgerName": "Smash Double Cheeseburger",
         "price": "16.90 CHF",
@@ -409,7 +437,7 @@
     },
     {
         "id": "2dfb0d18-1658-81c7-af14-c7038dd21bc3",
-        "rank": 16,
+        "rank": 17,
         "name": "Burger King",
         "burgerName": "Cheeseburger",
         "price": "3.40 CHF",
