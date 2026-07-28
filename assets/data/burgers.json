@@ -409,8 +409,35 @@
         "overallScore": 6.8
     },
     {
-        "id": "2d9b0d18-1658-8189-a4b7-f6cefe57942a",
+        "id": "3aab0d18-1658-81b0-b1cc-c1a9ced55a81",
         "rank": 16,
+        "name": "Alpi Burger",
+        "burgerName": "Fresh Smash Burger",
+        "price": "21.50 CHF",
+        "place": "Zurich",
+        "lastTasted": "2026-07-27",
+        "image": "../assets/images/burgers/alpi_burger_1.webp",
+        "images": [
+            "../assets/images/burgers/alpi_burger_1.webp",
+            "../assets/images/burgers/alpi_burger_2.webp"
+        ],
+        "ratings": {
+            "bun": 7.5,
+            "meat": 6,
+            "sauce": 7
+        },
+        "review": "Bun is brioche and good but a bit too sweet in my opinion. Meat is ok but does not stand out. To me just slightly above the chains, it is still jucy but lacks distinctive flavor. This is also true for the overall burger, it is good but lacks distinction. The sauce goes well with the burger but also is nothing special. Makes this burger seem like something you can prepare yourself at home",
+        "approved": false,
+        "valueScore": 5.5,
+        "valueForMoney": "\ud83d\udcb8 A Bit Pricey",
+        "shortVerdict": "Average burger, no stand out",
+        "seoReview": "Located in Zurich, Alpi Burger offers their Fresh Smash Burger as a solid option for those seeking a familiar flavor profile. The brioche bun is well-executed with a soft texture, though its sweetness leans a bit heavy for a savory profile. While the patty remains juicy, it lacks the charred distinction or unique seasoning typically expected from specialized smash burger spots, feeling only slightly elevated above standard chain offerings. The accompanying sauce complements the burger well without overpowering it, yet it doesn't quite elevate the experience to something extraordinary. For a price point of 21.5 CHF, the meal delivers a reliable, balanced experience but lacks a signature punch that would make it stand out. Ultimately, it feels like a high-quality home-cooked meal\u2014satisfying and approachable, though perhaps a bit pricey for the overall level of culinary distinction provided in the heart of Zurich.",
+        "seoVerdict": "A reliable but unremarkable Zurich smash burger that feels like home cooking.",
+        "overallScore": 6.6
+    },
+    {
+        "id": "2d9b0d18-1658-8189-a4b7-f6cefe57942a",
+        "rank": 17,
         "name": "Smash Burger Shahba Rose",
         "burgerName": "Smash Double Cheeseburger",
         "price": "16.90 CHF",
@@ -437,7 +464,7 @@
     },
     {
         "id": "2dfb0d18-1658-81c7-af14-c7038dd21bc3",
-        "rank": 17,
+        "rank": 18,
         "name": "Burger King",
         "burgerName": "Cheeseburger",
         "price": "3.40 CHF",
