@@ -418,8 +418,7 @@
         "lastTasted": "2026-07-27",
         "image": "../assets/images/burgers/alpi_burger_1.webp",
         "images": [
-            "../assets/images/burgers/alpi_burger_1.webp",
-            "../assets/images/burgers/alpi_burger_2.webp"
+            "../assets/images/burgers/alpi_burger_1.webp"
         ],
         "ratings": {
             "bun": 7.5,
