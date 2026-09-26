@@ -462,8 +462,34 @@
         "overallScore": 6.5
     },
     {
-        "id": "2dfb0d18-1658-81c7-af14-c7038dd21bc3",
+        "id": "3e6b0d18-1658-81b9-af42-ea961e3c6a76",
         "rank": 18,
+        "name": "Hans im Gl\u00fcck",
+        "burgerName": "Hans im Gl\u00fcck",
+        "price": "17.50 CHF",
+        "place": "Zurich",
+        "lastTasted": "2026-09-25",
+        "image": "../assets/images/burgers/hans_im_gl\u00fcck_1.webp",
+        "images": [
+            "../assets/images/burgers/hans_im_gl\u00fcck_1.webp"
+        ],
+        "ratings": {
+            "bun": 5,
+            "meat": 7,
+            "sauce": 6
+        },
+        "review": "The burger is fine, but the sourdough bread, unfortunately, is a bit dry and a bit underwhelming. It's not a smash burger. It's a regular burger. The meat, the patty, is juicy and feels like high-quality meat, although it lacks a bit of flavor. It could have more flavor, could be better seasoned. The sauce is like a regular cocktail sauce, or reminds you of a cocktail sauce. Nothing really stands out. The salad and the tomatoes and the onions are fresh. The cheese is good. It's a very okay burger, although it really feels a bit dull in the end. Definitely hard to compete for this burger with the other burgers, the better burger options that are around Zurich.",
+        "approved": false,
+        "valueScore": 6.5,
+        "valueForMoney": "\ud83d\udcb8 A Bit Pricey",
+        "shortVerdict": "Can\u2018t Compete",
+        "seoReview": "Visiting Hans im Gl\u00fcck in Zurich provides a decent but ultimately standard dining experience. The namesake Hans im Gl\u00fcck burger features a sourdough bun that, unfortunately, feels a bit dry and underwhelming compared to other local options. Unlike the popular smash burger style, this is a traditional regular burger. The beef patty stands out as juicy and clearly utilizes high-quality meat, though the execution lacks the bold seasoning or deep flavor profile needed to truly impress. Complementing the meat is a sauce reminiscent of a classic cocktail blend, which is pleasant but fails to stand out. While the fresh toppings like salad, tomatoes, onions, and cheese are well-executed, the overall combination feels slightly dull. Priced at 17.5 CHF, it represents a fair value for money, yet it struggles to compete with the more specialized burger joints found throughout Zurich. It is a reliable, very okay choice that just lacks a signature spark.",
+        "seoVerdict": "A decent, standard burger that struggles to stand out in Zurich.",
+        "overallScore": 6.3
+    },
+    {
+        "id": "2dfb0d18-1658-81c7-af14-c7038dd21bc3",
+        "rank": 19,
         "name": "Burger King",
         "burgerName": "Cheeseburger",
         "price": "3.40 CHF",
